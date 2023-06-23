@@ -86,7 +86,7 @@ grids_d2006,
 imglist_d2006,
 mask_d2006,
 {$IFDEF PRODELPHI}
-math_d2006,
+//math_d2006,
 {$ENDIF}
 menus_d2006,
 messages_d2006,

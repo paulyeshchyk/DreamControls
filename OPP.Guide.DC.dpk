@@ -38,16 +38,12 @@ package OPP.Guide.DC;
 {$IMPLICITBUILD OFF}
 
 contains
-  dcreg in 'units\dcreg.pas',
-  dcconsts in 'units\dcconsts.pas',
   win_imp in 'import\DC\win_imp.pas',
   vclimp in 'import\DC\vclimp.pas',
   impreg in 'import\DC\impreg.pas',
-  OPPSaveOpen_Unit in 'OPP\OPPSaveOpen_Unit.pas',
+  dcreg in 'units\dcreg.pas',
+  dcconsts in 'units\dcconsts.pas',
   dcapp in 'units\dcapp.pas';
-
-//,
-  //DreamControlsMain in 'DreamControlsMain.pas';
 
 end.
 
