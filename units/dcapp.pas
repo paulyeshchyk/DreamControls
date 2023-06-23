@@ -104,7 +104,7 @@ type
     function ValidObjectName(const ObjName:String):boolean;virtual;
     constructor Create(AOwner:TComponent);override;
     constructor CreateFrom(const FileName:TFileName; const FilerID:TFilerID);virtual;
-    constructor CreateNew(const FileName:TFileName; const FilerID:TFilerID;Dummy:Integer);virtual;
+    constructor CreateNew(const FileName:TFileName; const FilerID:TFilerID;Dummy:Integer;Aclassname:string='');virtual;
     function CanClose:boolean;virtual;
     destructor Destroy;override;
     procedure CutToClipboard;virtual;
@@ -485,7 +485,7 @@ type
     procedure GetUsedObjects(UsedObjects:TStrings);override;
     function ValidObjectName(const ObjName:String):boolean;override;
     constructor CreateFrom(const FileName:TFileName; const FilerID:TFilerID);override;
-    constructor CreateNew(const FileName:TFileName; const FilerID:TFilerID;Dummy:Integer);override;
+    constructor CreateNew(const FileName:TFileName; const FilerID:TFilerID;Dummy:Integer;Aclassname:string='');override;
     property MasterObject:TIDEObject Read FMasterObject;
   end;
 
@@ -3346,7 +3346,7 @@ end;
 
 {-------------------------------------------------------------------------}
 
-constructor TIDEObject.CreateNew(const FileName:TFileName;const FilerID:TFilerID;Dummy:Integer);
+constructor TIDEObject.CreateNew(const FileName:TFileName;const FilerID:TFilerID;Dummy:Integer;Aclassname:string='');
 begin
   inherited Create(nil);
   InternalCreate(FileName,FilerID);
@@ -3621,10 +3621,10 @@ end;
 
 {--------------------------------------------}
 
-constructor TMasteredIDEObject.CreateNew(const FileName:TFileName; const FilerID:TFilerID;Dummy:Integer);
+constructor TMasteredIDEObject.CreateNew(const FileName:TFileName; const FilerID:TFilerID;Dummy:Integer;Aclassname:string='');
 begin
   inherited;
-  FMasterObject:=GetMasterObjectClass.CreateNew(FileName,FilerID,0);
+  FMasterObject:=GetMasterObjectClass.CreateNew(FileName,FilerID,0,aclassname);
   AddObject(FMasterObject);
 end;
 

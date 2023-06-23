@@ -105,9 +105,10 @@ system_d2006,
 sysutils_d2006,
 tabnotbk_d2006,
  tabs_d2006,
- toolwin_d2006,
- inetHelper_d2006,
- JSON_d2006;
+ toolwin_d2006;
+// inetHelper_d2006,
+// JSON_d2006,
+
 
 {$ELSE}
 

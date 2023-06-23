@@ -40,17 +40,11 @@ package OPP.Guide.DC;
 contains
   dcreg in 'units\dcreg.pas',
   dcconsts in 'units\dcconsts.pas',
-  inetHelper in '..\..\Classes\inetHelper.pas',
-  TypeDBHelper in '..\..\Classes\TypeDBHelper.pas',
-  TDMConnect in '..\..\Utils\TDMConnect.pas',
-  TDSConnect in '..\..\Utils\TDSConnect.pas',
-  TDObjBrkr in '..\..\Utils\TDObjBrkr.pas',
-  TDMidasCon in '..\..\Utils\TDMidasCon.pas',
-  vclimp in '..\OPP.Help.DreamControls.Import\DC\vclimp.pas',
-  impreg in '..\OPP.Help.DreamControls.Import\DC\impreg.pas',
+  win_imp in 'import\DC\win_imp.pas',
+  vclimp in 'import\DC\vclimp.pas',
+  impreg in 'import\DC\impreg.pas',
   OPPSaveOpen_Unit in 'OPP\OPPSaveOpen_Unit.pas',
-  dcapp in 'units\dcapp.pas',
-  win_imp in '..\OPP.Help.DreamControls.Import\DC\win_imp.pas';
+  dcapp in 'units\dcapp.pas';
 
 //,
   //DreamControlsMain in 'DreamControlsMain.pas';
