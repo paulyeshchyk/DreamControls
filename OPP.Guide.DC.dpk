@@ -1,0 +1,59 @@
+{*******************************************************}
+{                                                       }
+{  Copyright (c) 1997-2001 Altium Limited               }
+{                                                       }
+{  http://www.dream-com.com                             }
+{  contact@dream-com.com                                }
+{                                                       }
+{*******************************************************}
+package OPP.Guide.DC;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE RELEASE}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Dream Controls (vcl dsgn)'}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+contains
+  dcreg in 'units\dcreg.pas',
+  dcconsts in 'units\dcconsts.pas',
+  inetHelper in '..\..\Classes\inetHelper.pas',
+  TypeDBHelper in '..\..\Classes\TypeDBHelper.pas',
+  TDMConnect in '..\..\Utils\TDMConnect.pas',
+  TDSConnect in '..\..\Utils\TDSConnect.pas',
+  TDObjBrkr in '..\..\Utils\TDObjBrkr.pas',
+  TDMidasCon in '..\..\Utils\TDMidasCon.pas',
+  vclimp in '..\OPP.Help.DreamControls.Import\DC\vclimp.pas',
+  impreg in '..\OPP.Help.DreamControls.Import\DC\impreg.pas',
+  OPPSaveOpen_Unit in 'OPP\OPPSaveOpen_Unit.pas',
+  dcapp in 'units\dcapp.pas',
+  win_imp in '..\OPP.Help.DreamControls.Import\DC\win_imp.pas';
+
+//,
+  //DreamControlsMain in 'DreamControlsMain.pas';
+
+end.
+
