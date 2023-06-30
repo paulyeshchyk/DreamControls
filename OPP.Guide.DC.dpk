@@ -43,7 +43,9 @@ contains
   impreg in 'import\DC\impreg.pas',
   dcreg in 'units\dcreg.pas',
   dcconsts in 'units\dcconsts.pas',
-  dcapp in 'units\dcapp.pas';
+  dcapp in 'units\dcapp.pas',
+  OPP.Guide.Scripter.DC.Init in 'OPP.Guide\OPP.Guide.Scripter.DC.Init.pas',
+  OPP.Guide.Scripter.DC in 'OPP.Guide\OPP.Guide.Scripter.DC.pas';
 
 end.
 

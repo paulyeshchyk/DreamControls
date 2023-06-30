@@ -1,6 +1,6 @@
-{} unit dctestunit;
+unit dctestunit;
 interface
 uses
-  DB_D2006;
+  Winapi.Windows_D2006;
 implementation
 end.

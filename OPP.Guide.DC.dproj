@@ -124,6 +124,8 @@
         <DCCReference Include="units\dcreg.pas"/>
         <DCCReference Include="units\dcconsts.pas"/>
         <DCCReference Include="units\dcapp.pas"/>
+        <DCCReference Include="OPP.Guide\OPP.Guide.Scripter.DC.Init.pas"/>
+        <DCCReference Include="OPP.Guide\OPP.Guide.Scripter.DC.pas"/>
         <None Include="units\dc.inc"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
