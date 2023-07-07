@@ -17,25 +17,53 @@ package OPP.Guide.DC;
 {$EXTENDEDSYNTAX ON}
 {$IMPORTEDDATA ON}
 {$IOCHECKS ON}
-{$LOCALSYMBOLS OFF}
+{$LOCALSYMBOLS ON}
 {$LONGSTRINGS ON}
 {$OPENSTRINGS ON}
-{$OPTIMIZATION ON}
+{$OPTIMIZATION OFF}
 {$OVERFLOWCHECKS OFF}
 {$RANGECHECKS OFF}
 {$REFERENCEINFO OFF}
 {$SAFEDIVIDE OFF}
-{$STACKFRAMES OFF}
+{$STACKFRAMES ON}
 {$TYPEDADDRESS OFF}
 {$VARSTRINGCHECKS ON}
 {$WRITEABLECONST OFF}
 {$MINENUMSIZE 1}
 {$IMAGEBASE $400000}
-{$DEFINE RELEASE}
 {$ENDIF IMPLICITBUILDING}
 {$DESCRIPTION 'Dream Controls (vcl dsgn)'}
 {$RUNONLY}
 {$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vclx,
+  vcl,
+  vclimg,
+  dbrtl,
+  IndySystem,
+  IndyProtocols,
+  IndyCore,
+  vcldb,
+  vcltouch,
+  dclvcldb,
+  dsnap,
+  adortl,
+  dxCoreRS25,
+  cxLibraryRS25,
+  dxGDIPlusRS25,
+  dxThemeRS25,
+  cxDataRS25,
+  cxPageControlRS25,
+  dxOfficeCoreRS25,
+  cxEditorsRS25,
+  dxSkinsCoreRS25,
+  Tee,
+  TeeUI,
+  TeeDB,
+  fmx,
+  DUnitXIDEExpert;
 
 contains
   win_imp in 'import\DC\win_imp.pas',
@@ -44,8 +72,12 @@ contains
   dcreg in 'units\dcreg.pas',
   dcconsts in 'units\dcconsts.pas',
   dcapp in 'units\dcapp.pas',
-  OPP.Guide.Scripter.DC.Init in 'OPP.Guide\OPP.Guide.Scripter.DC.Init.pas',
-  OPP.Guide.Scripter.DC in 'OPP.Guide\OPP.Guide.Scripter.DC.pas';
+  guideimp in 'import\GUIDE\guideimp.pas',
+  OPP_Guide_API_Context_d2006 in 'import\GUIDE\OPP_Guide_API_Context_d2006.pas',
+  OPP.Guide.Scripter.DC in 'scripter\OPP.Guide.Scripter.DC.pas',
+  OPP_Guide_API_Context_Step_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_d2006.pas',
+  OPP_Guide_API_Context_Map_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Map_d2006.pas',
+  OPP_Guide_API_d2006 in 'import\GUIDE\OPP_Guide_API_d2006.pas';
 
 end.
 
