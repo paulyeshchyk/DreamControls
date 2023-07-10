@@ -23,6 +23,8 @@ uses
   SysUtils,
   Classes,
   OPP_Guide_API,
+  OPP.Help.System.Messaging.Pipe,
+  OPP.Help.Predicate,
   OPP_Guide_API_Context_Step;
 
 implementation
@@ -64,6 +66,26 @@ begin
   result := TOPPGuideAPIContextStep(Instance).StepResult;
 end;
 
+function __DC__GetTOPPGuideAPIContextStepOpenHelp__Filename(Instance: TObject; Params: PVariantArgList): OleVariant;
+begin
+  result := TOPPGuideAPIContextStepOpenHelp(Instance).Filename;
+end;
+
+procedure __DC__SetTOPPGuideAPIContextStepOpenHelp__Filename(Instance: TObject; Params: PVariantArgList);
+begin
+  TOPPGuideAPIContextStepOpenHelp(Instance).Filename := OleVariant(Params^[0]);
+end;
+
+function __DC__GetTOPPGuideAPIContextStepOpenHelp__SearchTextValue(Instance: TObject; Params: PVariantArgList): OleVariant;
+begin
+  result := TOPPGuideAPIContextStepOpenHelp(Instance).SearchTextValue;
+end;
+
+procedure __DC__SetTOPPGuideAPIContextStepOpenHelp__SearchTextValue(Instance: TObject; Params: PVariantArgList);
+begin
+  TOPPGuideAPIContextStepOpenHelp(Instance).SearchTextValue := OleVariant(Params^[0]);
+end;
+
 function __DC__GetTOPPGuideAPIContextStepProcess__ApplicationName(Instance: TObject; Params: PVariantArgList): OleVariant;
 begin
   result := TOPPGuideAPIContextStepProcess(Instance).ApplicationName;
@@ -79,6 +101,8 @@ begin
   RegisterProperty(TOPPGuideAPIContextStep, 'State', __DC__GetTOPPGuideAPIContextStep__State, __DC__SetTOPPGuideAPIContextStep__State);
   RegisterProperty(TOPPGuideAPIContextStep, 'StateDescription', __DC__GetTOPPGuideAPIContextStep__StateDescription, __DC__SetTOPPGuideAPIContextStep__StateDescription);
   RegisterProperty(TOPPGuideAPIContextStep, 'StepResult', __DC__GetTOPPGuideAPIContextStep__StepResult, nil);
+  RegisterProperty(TOPPGuideAPIContextStepOpenHelp, 'Filename', __DC__GetTOPPGuideAPIContextStepOpenHelp__Filename, __DC__SetTOPPGuideAPIContextStepOpenHelp__Filename);
+  RegisterProperty(TOPPGuideAPIContextStepOpenHelp, 'SearchTextValue', __DC__GetTOPPGuideAPIContextStepOpenHelp__SearchTextValue, __DC__SetTOPPGuideAPIContextStepOpenHelp__SearchTextValue);
   RegisterProperty(TOPPGuideAPIContextStepProcess, 'ApplicationName', __DC__GetTOPPGuideAPIContextStepProcess__ApplicationName, __DC__SetTOPPGuideAPIContextStepProcess__ApplicationName);
 end;
 
@@ -106,7 +130,7 @@ begin
 end;
 
 const
-  ClassList: array [0 .. 1] of TClass = (TOPPGuideAPIContextStep, TOPPGuideAPIContextStepProcess);
+  ClassList: array [0 .. 2] of TClass = (TOPPGuideAPIContextStep, TOPPGuideAPIContextStepOpenHelp, TOPPGuideAPIContextStepProcess);
 
 procedure __RegisterClasses;
 begin
