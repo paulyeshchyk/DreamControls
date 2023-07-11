@@ -37,28 +37,11 @@ package OPP.Guide.DC;
 {$IMPLICITBUILD OFF}
 
 requires
-  rtl,
-  vclx,
-  vcl,
-  vclimg,
-  dbrtl,
-  IndySystem,
-  IndyProtocols,
-  IndyCore,
-  vcldb,
+  OPPHelp,
+  OPP.Guide.API,
   vcltouch,
   dclvcldb,
-  dsnap,
   adortl,
-  dxCoreRS25,
-  cxLibraryRS25,
-  dxGDIPlusRS25,
-  dxThemeRS25,
-  cxDataRS25,
-  cxPageControlRS25,
-  dxOfficeCoreRS25,
-  cxEditorsRS25,
-  dxSkinsCoreRS25,
   Tee,
   TeeUI,
   TeeDB,
@@ -76,8 +59,7 @@ contains
   OPP_Guide_API_Context_d2006 in 'import\GUIDE\OPP_Guide_API_Context_d2006.pas',
   OPP.Guide.Scripter.DC in 'scripter\OPP.Guide.Scripter.DC.pas',
   OPP_Guide_API_Context_Step_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_d2006.pas',
-  OPP_Guide_API_Context_Map_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Map_d2006.pas',
-  OPP_Guide_API_d2006 in 'import\GUIDE\OPP_Guide_API_d2006.pas';
+  OPP_Guide_API_Context_Step_OpenHelp_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_OpenHelp_d2006.pas';
 
 end.
 
