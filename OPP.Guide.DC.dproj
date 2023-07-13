@@ -110,9 +110,9 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <VerInfo_MajorVer>9</VerInfo_MajorVer>
         <VerInfo_Release>0</VerInfo_Release>
-        <VerInfo_Build>102</VerInfo_Build>
+        <VerInfo_Build>108</VerInfo_Build>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=ООО &quot;АСКОН - Интеграционные решения&quot;;FileDescription=$(MSBuildProjectName);FileVersion=9.0.0.102;InternalName=;LegalCopyright=(C) ООО &quot;АСКОН - Интеграционные решения&quot;, 2022-2023. Все права защищены.;LegalTrademarks=ГОЛЬФСТРИМ(R) является зарегистрированным товарным знаком ООО &quot;АСКОН - Интеграционные решения&quot;.;OriginalFilename=;ProductName=ГОЛЬФСТРИМ 9;ProductVersion=9.0.0.0;Comments=;ProgramID=ГОЛЬФСТРИМ</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=ООО &quot;АСКОН - Интеграционные решения&quot;;FileDescription=$(MSBuildProjectName);FileVersion=9.0.0.108;InternalName=;LegalCopyright=(C) ООО &quot;АСКОН - Интеграционные решения&quot;, 2022-2023. Все права защищены.;LegalTrademarks=ГОЛЬФСТРИМ(R) является зарегистрированным товарным знаком ООО &quot;АСКОН - Интеграционные решения&quot;.;OriginalFilename=;ProductName=ГОЛЬФСТРИМ 9;ProductVersion=9.0.0.0;Comments=;ProgramID=ГОЛЬФСТРИМ</VerInfo_Keys>
         <Debugger_HostApplication>..\..\Compiled\Executable\OPP.Guide.exe</Debugger_HostApplication>
         <VerInfo_AutoGenVersion>false</VerInfo_AutoGenVersion>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
@@ -139,11 +139,14 @@
         <DCCReference Include="units\dcreg.pas"/>
         <DCCReference Include="units\dcconsts.pas"/>
         <DCCReference Include="units\dcapp.pas"/>
-        <DCCReference Include="import\GUIDE\guideimp.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_d2006.pas"/>
         <DCCReference Include="scripter\OPP.Guide.Scripter.DC.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_d2006.pas"/>
+        <DCCReference Include="import\GUIDE\dctestunit.pas"/>
+        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_d2006.pas"/>
         <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_OpenHelp_d2006.pas"/>
+        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_Process_d2006.pas"/>
+        <DCCReference Include="import\GUIDE\OPP_Guide_API_d2006.pas"/>
+        <DCCReference Include="import\GUIDE\OPP_Help_System_Messaging_Pipe_d2006.pas"/>
+        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_d2006.pas"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

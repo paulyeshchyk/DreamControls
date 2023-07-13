@@ -1,1 +1,0 @@
-Bin\   Winapi.Windows_D2006; -I;C:\delphi_libs\my_libs\dc_412\utils\unitimporter\delphi\..\..\..\UNITS\;"C:\Program Files (x86)\Embarcadero\Studio\19.0\source\rtl\win\" -U;C:\delphi_libs\my_libs\dc_412\utils\unitimporter\delphi\..\..\..\UNITS\;"C:\Program Files (x86)\Embarcadero\Studio\19.0\source\rtl\win\" -LUdesignide;dclwbm;dcldss;dclado;dclcds dctestunit.pas

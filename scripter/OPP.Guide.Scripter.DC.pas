@@ -5,6 +5,7 @@ interface
 uses
   System.Classes,
   WinAPI.ActiveX,
+  OPP_Guide_API,
   OPP.Guide.Scripter;
 
 type
@@ -15,21 +16,22 @@ type
   public
     function RunScript(AStrings: TStrings): Variant; overload;
     function RunScript(AScriptText: String): Variant; overload; deprecated;
-    function RunScript(AStream: TMemoryStream): Variant; overload;
+    function RunScript(AStream: TMemoryStream; userInfo: IOPPGuideAPIIdentifiable): Variant; overload;
     function CompileScript(AStream: TMemoryStream): Variant;
   end;
 
 implementation
 
 uses
-
   OPP_Guide_API_Context,
+  OPP_Guide_API_Context_Step,
 
   System.Variants,
   System.SysUtils,
   OPP.Help.Log,
 
-  guideimp,
+  dctestunit,
+
   impreg,
   dcgen, dcconfig, dcreg,
   dcscript, dcPascal;
@@ -46,7 +48,7 @@ begin
   fStream := TMemoryStream.Create;
   try
     fStream.Write(PChar(AScriptText)^, Length(AScriptText));
-    self.RunScript(fStream);
+    self.RunScript(fStream, nil);
   finally
     fStream.Free;
   end;
@@ -96,7 +98,7 @@ begin
   end;
 end;
 
-function TOPPGuideScripterDC.RunScript(AStream: TMemoryStream): Variant;
+function TOPPGuideScripterDC.RunScript(AStream: TMemoryStream; userInfo: IOPPGuideAPIIdentifiable): Variant;
 var
   fDCScripter: TDCScripter;
   errLine, errChar: integer;
@@ -114,7 +116,7 @@ begin
     try
       if fDCScripter.CheckSyntaxEx(errLine, errChar, false) then
       begin
-        result := fDCScripter.DispatchMethod('Execute', [0]);
+        result := fDCScripter.DispatchMethod('Execute', [userInfo.IdentifierValue]);
         eventLogger.Flow(Format('Execution result', [result]), 'DC');
       end else begin
         result := Format('Syntax error at: line %d, char %d', [errLine, errChar]);

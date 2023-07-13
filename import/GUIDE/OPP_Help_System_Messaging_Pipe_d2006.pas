@@ -4,7 +4,7 @@
 {                                                       }
 {*******************************************************}
 
-Unit OPP_Guide_API_Context_Step_OpenHelp_d2006;
+Unit OPP_Help_System_Messaging_Pipe_d2006;
 interface
 {$I dc.inc}
 {$D-,L-,Y-}
@@ -16,10 +16,7 @@ uses
   dcscript,
   dcsystem,
   dcdreamlib,
-  OPP.Help.Predicate,
-  OPP_Guide_API,
-  OPP_Guide_API_Context_Step,
-  OPP_Guide_API_Context_Step_OpenHelp;
+  OPP_Help_System_Messaging_Pipe;
 implementation
 {$IFDEF D3}
 {$ELSE}
@@ -28,7 +25,8 @@ type
   OleVariant = Variant;
 {$ENDIF}
 type
-_T0 = procedure (p0 : TOPPHelpPredicate) of object;
+_T0 = procedure (p0 : THandle;
+p1 : THandle) of object;
 
 procedure __RegisterProps;
 begin
@@ -43,7 +41,7 @@ begin
 end;
 
 const ClassList : array[0..0] of TClass = (
-TOPPGuideAPIContextStepOpenHelp
+TOPPHelpSystemMessagePipeWrapper
 );
 procedure __RegisterClasses;
 begin
@@ -58,8 +56,9 @@ end;
 var __RegisteredMethods : TList;
 procedure _mreg_0;
 begin
-RegRegisterMethod(TOPPGuideAPIContextStepOpenHelp,'SetPredicate',TypeInfo(_T0),[
-TypeInfo(TOPPHelpPredicate)],Addr(TOPPGuideAPIContextStepOpenHelp.SetPredicate));
+RegisterProc(TOPPHelpSystemMessagePipeWrapper,'SendRecord',mtClassMethod,TypeInfo(_T0),[
+TypeInfo(THandle),
+TypeInfo(THandle)],Addr(TOPPHelpSystemMessagePipeWrapper.SendRecord),cRegister);
 
 end;
 initialization
