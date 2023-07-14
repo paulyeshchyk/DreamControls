@@ -16,16 +16,13 @@ type
   public
     function RunScript(AStrings: TStrings): Variant; overload;
     function RunScript(AScriptText: String): Variant; overload; deprecated;
-    function RunScript(AStream: TMemoryStream; userInfo: IOPPGuideAPIIdentifiable): Variant; overload;
+    function RunScript(AStream: TMemoryStream; AIdentifiable: IOPPGuideAPIIdentifiable): Variant; overload;
     function CompileScript(AStream: TMemoryStream): Variant;
   end;
 
 implementation
 
 uses
-  OPP_Guide_API_Context,
-  OPP_Guide_API_Context_Step,
-
   System.Variants,
   System.SysUtils,
   OPP.Help.Log,
@@ -68,7 +65,6 @@ function TOPPGuideScripterDC.CompileScript(AStream: TMemoryStream): Variant;
 var
   fDCScripter: TDCScripter;
   errLine, errChar: integer;
-  fContext: TOPPGuideAPIContext;
 begin
   fDCScripter := TDCScripter.Create(nil);
   try
@@ -98,11 +94,10 @@ begin
   end;
 end;
 
-function TOPPGuideScripterDC.RunScript(AStream: TMemoryStream; userInfo: IOPPGuideAPIIdentifiable): Variant;
+function TOPPGuideScripterDC.RunScript(AStream: TMemoryStream; AIdentifiable: IOPPGuideAPIIdentifiable): Variant;
 var
   fDCScripter: TDCScripter;
   errLine, errChar: integer;
-  fContext: TOPPGuideAPIContext;
 begin
   fDCScripter := TDCScripter.Create(nil);
   try
@@ -116,7 +111,7 @@ begin
     try
       if fDCScripter.CheckSyntaxEx(errLine, errChar, false) then
       begin
-        result := fDCScripter.DispatchMethod('Execute', [userInfo.IdentifierValue]);
+        result := fDCScripter.DispatchMethod('Execute', [AIdentifiable.IdentifierValue]);
         eventLogger.Flow(Format('Execution result', [result]), 'DC');
       end else begin
         result := Format('Syntax error at: line %d, char %d', [errLine, errChar]);

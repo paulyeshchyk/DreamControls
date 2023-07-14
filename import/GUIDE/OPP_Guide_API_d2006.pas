@@ -16,10 +16,11 @@ uses
   dcscript,
   dcsystem,
   dcdreamlib,
+  DBClient,
   Variants,
   OPP_Guide_API;
-function ConvertTOPPGuideAPIContextStepResultToVariant(var R : TOPPGuideAPIContextStepResult) : OleVariant;
-function ConvertVariantToTOPPGuideAPIContextStepResult(const V : OleVariant) : TOPPGuideAPIContextStepResult;
+function ConvertROPPGuideAPIContextStepResultToVariant(var R : ROPPGuideAPIContextStepResult) : OleVariant;
+function ConvertVariantToROPPGuideAPIContextStepResult(const V : OleVariant) : ROPPGuideAPIContextStepResult;
 implementation
 {$IFDEF D3}
 {$ELSE}
@@ -27,88 +28,135 @@ uses ole2;
 type
   OleVariant = Variant;
 {$ENDIF}
-type __TOPPGuideAPIContextStepResult__Wrapper = class(TDCRecordWrapper)
+type __ROPPGuideAPIContextStepResult__Wrapper = class(TDCRecordWrapper)
 private
-fR : TOPPGuideAPIContextStepResult;
+fR : ROPPGuideAPIContextStepResult;
 public
 function GetRecordPtr : pointer; override;
 published
-procedure setstate(const val : TOPPGuideAPIContextStepState);
-function getstate : TOPPGuideAPIContextStepState;
-property state : TOPPGuideAPIContextStepState read getstate write setstate;
-procedure setdescription(const val : AnsiString);
-function getdescription : AnsiString;
-property description : AnsiString read getdescription write setdescription;
-procedure setvalue_str(const val : AnsiString);
-function getvalue_str : AnsiString;
-property value_str : AnsiString read getvalue_str write setvalue_str;
+procedure setfState(const val : TOPPGuideAPIContextStepState);
+function getfState : TOPPGuideAPIContextStepState;
+property fState : TOPPGuideAPIContextStepState read getfState write setfState;
+procedure setfDescription(const val : AnsiString);
+function getfDescription : AnsiString;
+property fDescription : AnsiString read getfDescription write setfDescription;
+procedure setfValue_str(const val : AnsiString);
+function getfValue_str : AnsiString;
+property fValue_str : AnsiString read getfValue_str write setfValue_str;
 end;
-function __TOPPGuideAPIContextStepResult__Wrapper.GetRecordPtr : pointer;
+type
+_T0 = procedure  of object;
+
+function __ROPPGuideAPIContextStepResult__Wrapper.GetRecordPtr : pointer;
 begin
 result := @fR;
 end;
-procedure __TOPPGuideAPIContextStepResult__Wrapper.setstate(const val : TOPPGuideAPIContextStepState);
+procedure __ROPPGuideAPIContextStepResult__Wrapper.setfState(const val : TOPPGuideAPIContextStepState);
 begin
-TOPPGuideAPIContextStepResult(GetRecordPtr^).state := val;
+ROPPGuideAPIContextStepResult(GetRecordPtr^).fState := val;
 end;
-function __TOPPGuideAPIContextStepResult__Wrapper.getstate : TOPPGuideAPIContextStepState;
+function __ROPPGuideAPIContextStepResult__Wrapper.getfState : TOPPGuideAPIContextStepState;
 begin
-result := TOPPGuideAPIContextStepResult(GetRecordPtr^).state;
+result := ROPPGuideAPIContextStepResult(GetRecordPtr^).fState;
 end;
-procedure __TOPPGuideAPIContextStepResult__Wrapper.setdescription(const val : AnsiString);
+procedure __ROPPGuideAPIContextStepResult__Wrapper.setfDescription(const val : AnsiString);
 begin
-TOPPGuideAPIContextStepResult(GetRecordPtr^).description := val;
+ROPPGuideAPIContextStepResult(GetRecordPtr^).fDescription := val;
 end;
-function __TOPPGuideAPIContextStepResult__Wrapper.getdescription : AnsiString;
+function __ROPPGuideAPIContextStepResult__Wrapper.getfDescription : AnsiString;
 begin
-result := TOPPGuideAPIContextStepResult(GetRecordPtr^).description;
+result := ROPPGuideAPIContextStepResult(GetRecordPtr^).fDescription;
 end;
-procedure __TOPPGuideAPIContextStepResult__Wrapper.setvalue_str(const val : AnsiString);
+procedure __ROPPGuideAPIContextStepResult__Wrapper.setfValue_str(const val : AnsiString);
 begin
-TOPPGuideAPIContextStepResult(GetRecordPtr^).value_str := val;
+ROPPGuideAPIContextStepResult(GetRecordPtr^).fValue_str := val;
 end;
-function __TOPPGuideAPIContextStepResult__Wrapper.getvalue_str : AnsiString;
+function __ROPPGuideAPIContextStepResult__Wrapper.getfValue_str : AnsiString;
 begin
-result := TOPPGuideAPIContextStepResult(GetRecordPtr^).value_str;
+result := ROPPGuideAPIContextStepResult(GetRecordPtr^).fValue_str;
 end;
-function _TOPPGuideAPIContextStepResult_ : IDispatch;
+function _ROPPGuideAPIContextStepResult_ : IDispatch;
 begin
-  result := __TOPPGuideAPIContextStepResult__Wrapper.Create;
+  result := __ROPPGuideAPIContextStepResult__Wrapper.Create;
 end;
 
-type __TOPPGuideAPIContextStepResult__Wrapper__ = class(__TOPPGuideAPIContextStepResult__Wrapper)
+type __ROPPGuideAPIContextStepResult__Wrapper__ = class(__ROPPGuideAPIContextStepResult__Wrapper)
 private
 fRPtr : pointer;
 function GetRecordPtr : pointer; override;
 end;
-function __TOPPGuideAPIContextStepResult__Wrapper__.GetRecordPtr : pointer;
+function __ROPPGuideAPIContextStepResult__Wrapper__.GetRecordPtr : pointer;
 begin
 result := fRPtr;
 end;
-function ConvertTOPPGuideAPIContextStepResultToVariant(var R : TOPPGuideAPIContextStepResult) : OleVariant;
+function ConvertROPPGuideAPIContextStepResultToVariant(var R : ROPPGuideAPIContextStepResult) : OleVariant;
 var
-__rw : __TOPPGuideAPIContextStepResult__Wrapper__;
+__rw : __ROPPGuideAPIContextStepResult__Wrapper__;
 begin
-__rw := __TOPPGuideAPIContextStepResult__Wrapper__.Create;
+__rw := __ROPPGuideAPIContextStepResult__Wrapper__.Create;
 __rw.fRPtr := @R;
 result := IDispatch(__rw);
 end;
-function ConvertVariantToTOPPGuideAPIContextStepResult(const V : OleVariant) : TOPPGuideAPIContextStepResult;
+function ConvertVariantToROPPGuideAPIContextStepResult(const V : OleVariant) : ROPPGuideAPIContextStepResult;
 var
 _idisp : IDispatch;
 begin
 _idisp := VarToInterface(v);
 if _idisp = nil then exit;
-result := TOPPGuideAPIContextStepResult((_idisp as IDCRecordWrapper).GetRecordPtr^);
+result := ROPPGuideAPIContextStepResult((_idisp as IDCRecordWrapper).GetRecordPtr^);
 end;
-procedure __RegisterProps;
+function __DC__GetTOPPGuideAPIContextStepResult__State(Instance : TObject; Params : PVariantArgList) : OleVariant;
 begin
+result := TOPPGuideAPIContextStepResult(Instance).State;
 end;
 
-const __ConstNames0 : array[0..2] of string = (
+procedure __DC__SetTOPPGuideAPIContextStepResult__State(Instance : TObject; Params : PVariantArgList);
+begin
+TOPPGuideAPIContextStepResult(Instance).State:=OleVariant(Params^[0]);
+end;
+
+function __DC__GetTOPPGuideAPIContextStepResult__Description(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIContextStepResult(Instance).Description;
+end;
+
+procedure __DC__SetTOPPGuideAPIContextStepResult__Description(Instance : TObject; Params : PVariantArgList);
+begin
+TOPPGuideAPIContextStepResult(Instance).Description:=OleVariant(Params^[0]);
+end;
+
+function __DC__GetTOPPGuideAPIContextStepResult__Value_str(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIContextStepResult(Instance).Value_str;
+end;
+
+procedure __DC__SetTOPPGuideAPIContextStepResult__Value_str(Instance : TObject; Params : PVariantArgList);
+begin
+TOPPGuideAPIContextStepResult(Instance).Value_str:=OleVariant(Params^[0]);
+end;
+
+function __DC__GetTOPPGuideAPIContextStepResult__theRecord(Instance : TObject; Params : PVariantArgList) : OleVariant;
+var
+__wrapper : __ROPPGuideAPIContextStepResult__Wrapper;
+begin
+__wrapper := __ROPPGuideAPIContextStepResult__Wrapper.Create;
+__wrapper.fR := TOPPGuideAPIContextStepResult(Instance).theRecord;
+result := IUnknown(__wrapper) as IDispatch;
+end;
+
+procedure __RegisterProps;
+begin
+RegisterProperty(TOPPGuideAPIContextStepResult,'State',__DC__GetTOPPGuideAPIContextStepResult__State,__DC__SetTOPPGuideAPIContextStepResult__State);
+RegisterProperty(TOPPGuideAPIContextStepResult,'Description',__DC__GetTOPPGuideAPIContextStepResult__Description,__DC__SetTOPPGuideAPIContextStepResult__Description);
+RegisterProperty(TOPPGuideAPIContextStepResult,'Value_str',__DC__GetTOPPGuideAPIContextStepResult__Value_str,__DC__SetTOPPGuideAPIContextStepResult__Value_str);
+RegisterProperty(TOPPGuideAPIContextStepResult,'theRecord',__DC__GetTOPPGuideAPIContextStepResult__theRecord,nil);
+end;
+
+const __ConstNames0 : array[0..3] of string = (
 'osIdle'
 ,'osRunning'
 ,'osError'
+,'osUnknown'
 );
 var __RegisteredConstsList0 : TList;
 procedure __RegisterConsts0;
@@ -117,27 +165,33 @@ __RegisteredConstsList0 := TList.Create;
 __RegisteredConstsList0.Add(RegisterConst(__ConstNames0[0] ,osIdle));
 __RegisteredConstsList0.Add(RegisterConst(__ConstNames0[1] ,osRunning));
 __RegisteredConstsList0.Add(RegisterConst(__ConstNames0[2] ,osError));
+__RegisteredConstsList0.Add(RegisterConst(__ConstNames0[3] ,osUnknown));
 end;
 
 procedure __UnregisterConsts0;
 var i : integer;
 begin
-for i := 0 to 2 do
+for i := 0 to 3 do
 UnregisterConst(__ConstNames0[i], __RegisteredConstsList0[i]);
 __RegisteredConstsList0.Free
 end;
 
+const ClassList : array[0..0] of TClass = (
+TOPPGuideAPIContextStepResult
+);
 procedure __RegisterClasses;
 begin
+RegisterClassesInScript(ClassList);
 end;
 
 procedure __UnRegisterClasses;
 begin
+UnRegisterClassesInScript(ClassList);
 end;
 
 var __RegisteredMethods : TList;
 const MethodNames : array[0..0] of string = (
-'TOPPGuideAPIContextStepResult'
+'ROPPGuideAPIContextStepResult'
 );
 
 procedure __UnregisterProcs;
@@ -150,7 +204,9 @@ end;
 
 procedure _mreg_0;
 begin
-__RegisteredMethods.Add(RegisterRWProc(MethodNames[0],Addr(_TOPPGuideAPIContextStepResult_)));
+__RegisteredMethods.Add(RegisterRWProc(MethodNames[0],Addr(_ROPPGuideAPIContextStepResult_)));
+RegisterProc(TOPPGuideAPIContextStepResult,'Create',mtConstructor,TypeInfo(_T0),NoParams,Addr(TOPPGuideAPIContextStepResult.Create),cRegister);
+
 end;
 initialization
 __RegisteredMethods := TList.Create;

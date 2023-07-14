@@ -58,11 +58,11 @@ contains
   OPP.Guide.Scripter.DC in 'scripter\OPP.Guide.Scripter.DC.pas',
   dctestunit in 'import\GUIDE\dctestunit.pas',
   OPP_Guide_API_Context_d2006 in 'import\GUIDE\OPP_Guide_API_Context_d2006.pas',
-  OPP_Guide_API_Context_Step_OpenHelp_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_OpenHelp_d2006.pas',
   OPP_Guide_API_Context_Step_Process_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_Process_d2006.pas',
   OPP_Guide_API_d2006 in 'import\GUIDE\OPP_Guide_API_d2006.pas',
   OPP_Help_System_Messaging_Pipe_d2006 in 'import\GUIDE\OPP_Help_System_Messaging_Pipe_d2006.pas',
-  OPP_Guide_API_Context_Step_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_d2006.pas';
+  OPP_Guide_API_Context_Step_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_d2006.pas',
+  OPP_Guide_API_Context_Step_SendMessage_Help_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_SendMessage_Help_d2006.pas';
 
 end.
 
