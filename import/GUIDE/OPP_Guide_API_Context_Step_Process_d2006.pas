@@ -22,6 +22,7 @@ uses
   OPP_Guide_API,
   OPP_Guide_API_Context,
   OPP_Guide_API_Context_Step,
+  OPP_Guide_Executor_State,
   OPP_Guide_API_Context_Step_Process;
 implementation
 {$IFDEF D3}
@@ -50,10 +51,21 @@ begin
 TOPPGuideAPIContextStepProcess(Instance).WindowClassName:=OleVariant(Params^[0]);
 end;
 
+function __DC__GetTOPPGuideAPIContextStepProcess__WaitForSingleObjectInMS(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIContextStepProcess(Instance).WaitForSingleObjectInMS;
+end;
+
+procedure __DC__SetTOPPGuideAPIContextStepProcess__WaitForSingleObjectInMS(Instance : TObject; Params : PVariantArgList);
+begin
+TOPPGuideAPIContextStepProcess(Instance).WaitForSingleObjectInMS:=OleVariant(Params^[0]);
+end;
+
 procedure __RegisterProps;
 begin
 RegisterProperty(TOPPGuideAPIContextStepProcess,'ApplicationName',__DC__GetTOPPGuideAPIContextStepProcess__ApplicationName,__DC__SetTOPPGuideAPIContextStepProcess__ApplicationName);
 RegisterProperty(TOPPGuideAPIContextStepProcess,'WindowClassName',__DC__GetTOPPGuideAPIContextStepProcess__WindowClassName,__DC__SetTOPPGuideAPIContextStepProcess__WindowClassName);
+RegisterProperty(TOPPGuideAPIContextStepProcess,'WaitForSingleObjectInMS',__DC__GetTOPPGuideAPIContextStepProcess__WaitForSingleObjectInMS,__DC__SetTOPPGuideAPIContextStepProcess__WaitForSingleObjectInMS);
 end;
 
 procedure __RegisterConsts0;
