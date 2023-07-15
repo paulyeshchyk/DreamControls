@@ -48,16 +48,16 @@
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
         <DebugSourcePath>D:\Ascon_NewSvn\Sources\Common\NavBar\;D:\GulfStreamSource\trunk\Sources\Components\Import\DevExpress\;$(DebugSourcePath)</DebugSourcePath>
-        <DCC_BplOutput>D:\GulfStream\Compiled\Executable</DCC_BplOutput>
+        <DCC_BplOutput>$(OPPCompiled)\Executable</DCC_BplOutput>
         <DCC_Description>Dream Controls (vcl dsgn)</DCC_Description>
         <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
-        <DCC_UnitSearchPath>D:\GulfStream\Sources\Common\Help\OPP.Help;D:\GulfStream\Sources\Common\Help\OPP.Guide.API\exportable;.\units;.\import\DC\delphi_2006;.\import\OPP;.\import\GUIDE;D:\GulfStream\Sources\Common\Help\OPP.Guide.API\common;D:\GulfStream\Compiled\Executable;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>.\units;.\import\DC\delphi_2006;.\import\OPP;$(OPPCompiled)\Executable;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_S>false</DCC_S>
         <DCC_N>true</DCC_N>
-        <DCC_DcpOutput>D:\GulfStream\Compiled\Executable</DCC_DcpOutput>
+        <DCC_DcpOutput>$(OPPCompiled)\Executable</DCC_DcpOutput>
         <GenDll>true</GenDll>
         <DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
-        <DCC_DcuOutput>D:\GulfStream\Compiled\Units\Common\OPP.Guide.API</DCC_DcuOutput>
+        <DCC_DcuOutput>$(OPPCompiled)\Units\Common\OPP.Guide.DC</DCC_DcuOutput>
         <GenPackage>true</GenPackage>
         <DCC_E>false</DCC_E>
         <DCC_K>false</DCC_K>
@@ -78,13 +78,10 @@
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Debugger_HostApplication>D:\GulfstreamSource XE\Compiled\Executable\OPPDesigner.exe</Debugger_HostApplication>
-        <DCC_UnitSearchPath>..\..\compiled\units\;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_MajorVer>1</VerInfo_MajorVer>
         <VerInfo_Release>0</VerInfo_Release>
         <VerInfo_Build>0</VerInfo_Build>
         <DCC_UsePackage>rtl;vclx;vcl;vclimg;dbrtl;vcldb;dxCoreRS25;cxLibraryRS25;dxGDIPlusRS25;dxThemeRS25;cxDataRS25;cxPageControlRS25;dxOfficeCoreRS25;cxEditorsRS25;dxLayoutControlRS25;dxSpellCheckerRS25;dxSpreadSheetRS25;dxSpreadSheetInplaceRichEditRS25;dxRichEditInplaceRS25;$(DCC_UsePackage)</DCC_UsePackage>
-        <DCC_DcpOutput>D:\GulfStream\Compiled\Executable</DCC_DcpOutput>
-        <DCC_BplOutput>D:\GulfStream\Compiled\Executable</DCC_BplOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
@@ -110,14 +107,12 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <VerInfo_MajorVer>9</VerInfo_MajorVer>
         <VerInfo_Release>0</VerInfo_Release>
-        <VerInfo_Build>111</VerInfo_Build>
+        <VerInfo_Build>129</VerInfo_Build>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=ООО &quot;АСКОН - Интеграционные решения&quot;;FileDescription=$(MSBuildProjectName);FileVersion=9.0.0.111;InternalName=;LegalCopyright=(C) ООО &quot;АСКОН - Интеграционные решения&quot;, 2022-2023. Все права защищены.;LegalTrademarks=ГОЛЬФСТРИМ(R) является зарегистрированным товарным знаком ООО &quot;АСКОН - Интеграционные решения&quot;.;OriginalFilename=;ProductName=ГОЛЬФСТРИМ 9;ProductVersion=9.0.0.0;Comments=;ProgramID=ГОЛЬФСТРИМ</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=ООО &quot;АСКОН - Интеграционные решения&quot;;FileDescription=$(MSBuildProjectName);FileVersion=9.0.0.129;InternalName=;LegalCopyright=(C) ООО &quot;АСКОН - Интеграционные решения&quot;, 2022-2023. Все права защищены.;LegalTrademarks=ГОЛЬФСТРИМ(R) является зарегистрированным товарным знаком ООО &quot;АСКОН - Интеграционные решения&quot;.;OriginalFilename=;ProductName=ГОЛЬФСТРИМ 9;ProductVersion=9.0.0.0;Comments=;ProgramID=ГОЛЬФСТРИМ</VerInfo_Keys>
         <Debugger_HostApplication>..\..\Compiled\Executable\OPP.Guide.exe</Debugger_HostApplication>
         <VerInfo_AutoGenVersion>false</VerInfo_AutoGenVersion>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
-        <DCC_DcpOutput>D:\GulfStream\Compiled\Executable</DCC_DcpOutput>
-        <DCC_BplOutput>D:\GulfStream\Compiled\Executable</DCC_BplOutput>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -125,29 +120,12 @@
         </DelphiCompile>
         <DCCReference Include="OPPHelp.dcp"/>
         <DCCReference Include="OPP.Guide.API.dcp"/>
-        <DCCReference Include="vcltouch.dcp"/>
-        <DCCReference Include="dclvcldb.dcp"/>
-        <DCCReference Include="adortl.dcp"/>
-        <DCCReference Include="Tee.dcp"/>
-        <DCCReference Include="TeeUI.dcp"/>
-        <DCCReference Include="TeeDB.dcp"/>
-        <DCCReference Include="fmx.dcp"/>
-        <DCCReference Include="DUnitXIDEExpert.dcp"/>
         <DCCReference Include="import\DC\win_imp.pas"/>
         <DCCReference Include="import\DC\vclimp.pas"/>
         <DCCReference Include="import\DC\impreg.pas"/>
         <DCCReference Include="units\dcreg.pas"/>
         <DCCReference Include="units\dcconsts.pas"/>
         <DCCReference Include="units\dcapp.pas"/>
-        <DCCReference Include="import\GUIDE\dctestunit.pas"/>
-        <DCCReference Include="scripter\OPP.Guide.Scripter.DC.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_Process_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_SendMessage_Help_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Help_System_Messaging_Pipe_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_Executor_State_d2006.pas"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
