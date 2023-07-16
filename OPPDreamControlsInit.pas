@@ -3,7 +3,7 @@ unit OPPDreamControlsInit;
 interface
 uses
   dcconfig
-  , dcreg
+//  , dcreg
   , dcgen;
 
 implementation

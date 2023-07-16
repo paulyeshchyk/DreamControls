@@ -25,12 +25,8 @@ package OPP.Guide.DC.API;
 {$IMAGEBASE $400000}
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
-{$IMPLICITBUILD ON}
-
-requires
-  OPPHelp,
-  OPP.Guide.API,
-  OPP.Guide.DC;
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
 
 contains
   dctestunit in 'import\GUIDE\dctestunit.pas',

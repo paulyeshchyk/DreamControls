@@ -6,6 +6,7 @@
 {  contact@dream-com.com                                }
 {                                                       }
 {*******************************************************}
+
 package OPP.Guide.DC;
 
 {$R *.res}
@@ -37,14 +38,14 @@ package OPP.Guide.DC;
 {$IMPLICITBUILD OFF}
 
 requires
-  OPPHelp,
-  OPP.Guide.API;
+  vcl,
+  rtl{,
+  OPPHelp};
 
 contains
   win_imp in 'import\DC\win_imp.pas',
   vclimp in 'import\DC\vclimp.pas',
   impreg in 'import\DC\impreg.pas',
-  dcreg in 'units\dcreg.pas',
   dcconsts in 'units\dcconsts.pas',
   dcapp in 'units\dcapp.pas';
 

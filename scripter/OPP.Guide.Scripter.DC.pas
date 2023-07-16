@@ -30,7 +30,7 @@ uses
   dctestunit,
 
   impreg,
-  dcgen, dcconfig, dcreg,
+//  dcgen, dcconfig, dcreg,
   dcscript, dcPascal;
 
 { TOPPGuideScripter }

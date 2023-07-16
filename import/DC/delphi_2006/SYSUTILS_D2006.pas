@@ -2211,7 +2211,7 @@ end;
 
 procedure __DC__SetSysUtils__Win32Platform(Instance : TObject; Params : PVariantArgList);
 begin
-SysUtils.Win32Platform:=OleVariant(Params^[0]);
+//SysUtils.Win32Platform:=OleVariant(Params^[0]);
 end;
 
 function __DC__GetSysUtils__Win32MajorVersion(Instance : TObject; Params : PVariantArgList) : OleVariant;
@@ -2221,7 +2221,7 @@ end;
 
 procedure __DC__SetSysUtils__Win32MajorVersion(Instance : TObject; Params : PVariantArgList);
 begin
-SysUtils.Win32MajorVersion:=OleVariant(Params^[0]);
+//SysUtils.Win32MajorVersion:=OleVariant(Params^[0]);
 end;
 
 function __DC__GetSysUtils__Win32MinorVersion(Instance : TObject; Params : PVariantArgList) : OleVariant;
@@ -2231,7 +2231,7 @@ end;
 
 procedure __DC__SetSysUtils__Win32MinorVersion(Instance : TObject; Params : PVariantArgList);
 begin
-SysUtils.Win32MinorVersion:=OleVariant(Params^[0]);
+//SysUtils.Win32MinorVersion:=OleVariant(Params^[0]);
 end;
 
 function __DC__GetSysUtils__Win32BuildNumber(Instance : TObject; Params : PVariantArgList) : OleVariant;
@@ -2241,7 +2241,7 @@ end;
 
 procedure __DC__SetSysUtils__Win32BuildNumber(Instance : TObject; Params : PVariantArgList);
 begin
-SysUtils.Win32BuildNumber:=OleVariant(Params^[0]);
+//SysUtils.Win32BuildNumber:=OleVariant(Params^[0]);
 end;
 
 function __DC__GetSysUtils__Win32CSDVersion(Instance : TObject; Params : PVariantArgList) : OleVariant;
@@ -2251,7 +2251,7 @@ end;
 
 procedure __DC__SetSysUtils__Win32CSDVersion(Instance : TObject; Params : PVariantArgList);
 begin
-SysUtils.Win32CSDVersion:=OleVariant(Params^[0]);
+//SysUtils.Win32CSDVersion:=OleVariant(Params^[0]);
 end;
 
 function __DC__GetSysUtils__CurrencyString(Instance : TObject; Params : PVariantArgList) : OleVariant;

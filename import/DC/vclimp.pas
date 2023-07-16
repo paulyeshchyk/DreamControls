@@ -38,7 +38,7 @@ uses
 Keyboard_imp,
 
 comobj_d2006,
-SHELLAPI_D2006,
+//SHELLAPI_D2006,
 {$IFDEF D2006}
 inifiles_d2006,
 types_d2006,
