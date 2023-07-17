@@ -38,9 +38,7 @@ package OPP.Guide.DC;
 {$IMPLICITBUILD OFF}
 
 requires
-  vcl,
-  rtl{,
-  OPPHelp};
+  OPP.Guide.API;
 
 contains
   win_imp in 'import\DC\win_imp.pas',

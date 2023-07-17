@@ -17,9 +17,11 @@ uses
   dcsystem,
   dcdreamlib,
   SysUtils,
+  OPP_Help_API,
   OPP_Guide_API,
   OPP_Guide_Executor_State,
   OPP_Guide_API_Context_Step,
+  Proxy_OPPHelpPredicate,
   OPP_Guide_API_Context_Step_SendMessage_Help;
 implementation
 {$IFDEF D3}
@@ -28,41 +30,22 @@ uses ole2;
 type
   OleVariant = Variant;
 {$ENDIF}
-function __DC__GetTOPPGuideAPIContextStepSendMessageHelp__HelpApplicationHandle(Instance : TObject; Params : PVariantArgList) : OleVariant;
+type
+_T0 = procedure (p0 : TProxy_OPPHelpPredicate) of object;
+
+function __DC__GetTOPPGuideAPIContextStepSendMessageHelp__TargetApplicationHandle(Instance : TObject; Params : PVariantArgList) : OleVariant;
 begin
-result := TOPPGuideAPIContextStepSendMessageHelp(Instance).HelpApplicationHandle;
+result := TOPPGuideAPIContextStepSendMessageHelp(Instance).TargetApplicationHandle;
 end;
 
-procedure __DC__SetTOPPGuideAPIContextStepSendMessageHelp__HelpApplicationHandle(Instance : TObject; Params : PVariantArgList);
+procedure __DC__SetTOPPGuideAPIContextStepSendMessageHelp__TargetApplicationHandle(Instance : TObject; Params : PVariantArgList);
 begin
-TOPPGuideAPIContextStepSendMessageHelp(Instance).HelpApplicationHandle:=OleVariant(Params^[0]);
-end;
-
-function __DC__GetTOPPGuideAPIContextStepSendMessageHelp__HelpFilename(Instance : TObject; Params : PVariantArgList) : OleVariant;
-begin
-result := TOPPGuideAPIContextStepSendMessageHelp(Instance).HelpFilename;
-end;
-
-procedure __DC__SetTOPPGuideAPIContextStepSendMessageHelp__HelpFilename(Instance : TObject; Params : PVariantArgList);
-begin
-TOPPGuideAPIContextStepSendMessageHelp(Instance).HelpFilename:=OleVariant(Params^[0]);
-end;
-
-function __DC__GetTOPPGuideAPIContextStepSendMessageHelp__SearchText(Instance : TObject; Params : PVariantArgList) : OleVariant;
-begin
-result := TOPPGuideAPIContextStepSendMessageHelp(Instance).SearchText;
-end;
-
-procedure __DC__SetTOPPGuideAPIContextStepSendMessageHelp__SearchText(Instance : TObject; Params : PVariantArgList);
-begin
-TOPPGuideAPIContextStepSendMessageHelp(Instance).SearchText:=OleVariant(Params^[0]);
+TOPPGuideAPIContextStepSendMessageHelp(Instance).TargetApplicationHandle:=OleVariant(Params^[0]);
 end;
 
 procedure __RegisterProps;
 begin
-RegisterProperty(TOPPGuideAPIContextStepSendMessageHelp,'HelpApplicationHandle',__DC__GetTOPPGuideAPIContextStepSendMessageHelp__HelpApplicationHandle,__DC__SetTOPPGuideAPIContextStepSendMessageHelp__HelpApplicationHandle);
-RegisterProperty(TOPPGuideAPIContextStepSendMessageHelp,'HelpFilename',__DC__GetTOPPGuideAPIContextStepSendMessageHelp__HelpFilename,__DC__SetTOPPGuideAPIContextStepSendMessageHelp__HelpFilename);
-RegisterProperty(TOPPGuideAPIContextStepSendMessageHelp,'SearchText',__DC__GetTOPPGuideAPIContextStepSendMessageHelp__SearchText,__DC__SetTOPPGuideAPIContextStepSendMessageHelp__SearchText);
+RegisterProperty(TOPPGuideAPIContextStepSendMessageHelp,'TargetApplicationHandle',__DC__GetTOPPGuideAPIContextStepSendMessageHelp__TargetApplicationHandle,__DC__SetTOPPGuideAPIContextStepSendMessageHelp__TargetApplicationHandle);
 end;
 
 procedure __RegisterConsts0;
@@ -86,8 +69,12 @@ begin
 UnRegisterClassesInScript(ClassList);
 end;
 
+var __RegisteredMethods : TList;
 procedure _mreg_0;
 begin
+RegRegisterMethod(TOPPGuideAPIContextStepSendMessageHelp,'SetPredicate',TypeInfo(_T0),[
+TypeInfo(TProxy_OPPHelpPredicate)],Addr(TOPPGuideAPIContextStepSendMessageHelp.SetPredicate));
+
 end;
 initialization
 _mreg_0;

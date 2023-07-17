@@ -40,9 +40,9 @@ published
 procedure setstepIdentifier(const val : AnsiString);
 function getstepIdentifier : AnsiString;
 property stepIdentifier : AnsiString read getstepIdentifier write setstepIdentifier;
-procedure setshortDescription(const val : AnsiString);
-function getshortDescription : AnsiString;
-property shortDescription : AnsiString read getshortDescription write setshortDescription;
+procedure setuserInfo(const val : AnsiString);
+function getuserInfo : AnsiString;
+property userInfo : AnsiString read getuserInfo write setuserInfo;
 procedure setexecutionResult(const val : AnsiString);
 function getexecutionResult : AnsiString;
 property executionResult : AnsiString read getexecutionResult write setexecutionResult;
@@ -65,7 +65,9 @@ _T6 = procedure  of object;
 
 _T7 = function (p0 : String): TOPPGuideAPIContextStepResult of object;
 
-{_T8 = procedure (p0 : IOPPGuideAPIDataprovider) of object;}
+_T8 = _T7;
+
+{_T9 = procedure (p0 : IOPPGuideAPIDataprovider) of object;}
 
 function __TOPPGuideExecutorRunState__Wrapper.GetRecordPtr : pointer;
 begin
@@ -79,13 +81,13 @@ function __TOPPGuideExecutorRunState__Wrapper.getstepIdentifier : AnsiString;
 begin
 result := TOPPGuideExecutorRunState(GetRecordPtr^).stepIdentifier;
 end;
-procedure __TOPPGuideExecutorRunState__Wrapper.setshortDescription(const val : AnsiString);
+procedure __TOPPGuideExecutorRunState__Wrapper.setuserInfo(const val : AnsiString);
 begin
-TOPPGuideExecutorRunState(GetRecordPtr^).shortDescription := val;
+TOPPGuideExecutorRunState(GetRecordPtr^).userInfo := val;
 end;
-function __TOPPGuideExecutorRunState__Wrapper.getshortDescription : AnsiString;
+function __TOPPGuideExecutorRunState__Wrapper.getuserInfo : AnsiString;
 begin
-result := TOPPGuideExecutorRunState(GetRecordPtr^).shortDescription;
+result := TOPPGuideExecutorRunState(GetRecordPtr^).userInfo;
 end;
 procedure __TOPPGuideExecutorRunState__Wrapper.setexecutionResult(const val : AnsiString);
 begin
@@ -189,6 +191,9 @@ RegRegisterMethod(TOPPGuideAPIContext,'Clear',TypeInfo(_T6),NoParams,Addr(TOPPGu
 RegRegisterMethod(TOPPGuideAPIContext,'GetParentStepResult',TypeInfo(_T7),[
 TypeInfo(String),TypeInfo(TOPPGuideAPIContextStepResult)],Addr(TOPPGuideAPIContext.GetParentStepResult));
 
+RegRegisterMethod(TOPPGuideAPIContext,'GetCustomStepResult',TypeInfo(_T8),[
+TypeInfo(String),TypeInfo(TOPPGuideAPIContextStepResult)],Addr(TOPPGuideAPIContext.GetCustomStepResult));
+
 end;
 initialization
 _mreg_0;
@@ -198,7 +203,7 @@ TypeInfo(IOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.Add))}
 {RegRegisterMethod(TOPPGuideAPIContext,'Remove',TypeInfo(_T5),[
 TypeInfo(IOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.Remove))}
 
-{RegRegisterMethod(TOPPGuideAPIContext,'SetDataprovider',TypeInfo(_T8),[
+{RegRegisterMethod(TOPPGuideAPIContext,'SetDataprovider',TypeInfo(_T9),[
 TypeInfo(IOPPGuideAPIDataprovider)],Addr(TOPPGuideAPIContext.SetDataprovider))}
 
 __RegisterClasses;

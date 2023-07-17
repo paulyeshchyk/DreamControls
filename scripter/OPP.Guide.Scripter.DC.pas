@@ -112,7 +112,6 @@ begin
       if fDCScripter.CheckSyntaxEx(errLine, errChar, false) then
       begin
         result := fDCScripter.DispatchMethod('Execute', [AIdentifiable.IdentifierValue]);
-        eventLogger.Flow(Format('Execution result', [result]), 'DC');
       end else begin
         result := Format('Syntax error at: line %d, char %d', [errLine, errChar]);
         eventLogger.Error(result, 'DC');
