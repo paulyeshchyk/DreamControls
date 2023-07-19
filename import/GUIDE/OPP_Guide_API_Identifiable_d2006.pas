@@ -4,7 +4,7 @@
 {                                                       }
 {*******************************************************}
 
-Unit OPP_Guide_API_Context_Helper_d2006;
+Unit OPP_Guide_API_Identifiable_d2006;
 interface
 {$I dc.inc}
 {$D-,L-,Y-}
@@ -16,9 +16,7 @@ uses
   dcscript,
   dcsystem,
   dcdreamlib,
-  OPP_Guide_API_Context,
-  Proxy_OPPHelpPredicate,
-  OPP_Guide_API_Context_Helper;
+  OPP_Guide_API_Identifiable;
 implementation
 {$IFDEF D3}
 {$ELSE}
@@ -26,12 +24,6 @@ uses ole2;
 type
   OleVariant = Variant;
 {$ENDIF}
-type
-_T0 = procedure (p0 : String;
-p1 : String;
-p2 : String;
-p3 : String) of object;
-
 procedure __RegisterProps;
 begin
 end;
@@ -44,28 +36,16 @@ procedure __UnregisterConsts0;
 begin
 end;
 
-const ClassList : array[0..0] of TClass = (
-TOPPGuideAPIContextHelper
-);
 procedure __RegisterClasses;
 begin
-RegisterClassesInScript(ClassList);
 end;
 
 procedure __UnRegisterClasses;
 begin
-UnRegisterClassesInScript(ClassList);
 end;
 
-var __RegisteredMethods : TList;
 procedure _mreg_0;
 begin
-RegisterProc(TOPPGuideAPIContextHelper,'test',mtClassMethod,TypeInfo(_T0),[
-TypeInfo(String),
-TypeInfo(String),
-TypeInfo(String),
-TypeInfo(String)],Addr(TOPPGuideAPIContextHelper.test),cRegister);
-
 end;
 initialization
 _mreg_0;

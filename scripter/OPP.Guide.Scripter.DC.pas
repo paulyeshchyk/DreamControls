@@ -6,6 +6,7 @@ uses
   System.Classes,
   WinAPI.ActiveX,
   OPP_Guide_API,
+  OPP_Guide_API_Identifiable,
   OPP.Guide.Scripter;
 
 type
@@ -30,7 +31,7 @@ uses
   dctestunit,
 
   impreg,
-//  dcgen, dcconfig, dcreg,
+  // dcgen, dcconfig, dcreg,
   dcscript, dcPascal;
 
 { TOPPGuideScripter }

@@ -18,6 +18,7 @@ uses
   SysUtils,
   Classes,
   OPP_Guide_API,
+  OPP_Guide_API_Identifiable,
   OPP_Guide_Executor_State,
   OPP_Guide_API_Context_Step;
 implementation
@@ -38,6 +39,8 @@ _T2 = function : String of object;
 _T3 = _T2;
 
 _T4 = _T2;
+
+_T5 = _T2;
 
 function __DC__GetTOPPGuideAPIContextStep__NodeType(Instance : TObject; Params : PVariantArgList) : OleVariant;
 begin
@@ -69,11 +72,22 @@ begin
 TOPPGuideAPIContextStep(Instance).Identifier:=OleVariant(Params^[0]);
 end;
 
+function __DC__GetTOPPGuideAPIContextStep__PIdentifier(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIContextStep(Instance).PIdentifier;
+end;
+
+procedure __DC__SetTOPPGuideAPIContextStep__PIdentifier(Instance : TObject; Params : PVariantArgList);
+begin
+TOPPGuideAPIContextStep(Instance).PIdentifier:=OleVariant(Params^[0]);
+end;
+
 procedure __RegisterProps;
 begin
 RegisterProperty(TOPPGuideAPIContextStep,'NodeType',__DC__GetTOPPGuideAPIContextStep__NodeType,__DC__SetTOPPGuideAPIContextStep__NodeType);
 RegisterProperty(TOPPGuideAPIContextStep,'Caption',__DC__GetTOPPGuideAPIContextStep__Caption,__DC__SetTOPPGuideAPIContextStep__Caption);
 RegisterProperty(TOPPGuideAPIContextStep,'Identifier',__DC__GetTOPPGuideAPIContextStep__Identifier,__DC__SetTOPPGuideAPIContextStep__Identifier);
+RegisterProperty(TOPPGuideAPIContextStep,'PIdentifier',__DC__GetTOPPGuideAPIContextStep__PIdentifier,__DC__SetTOPPGuideAPIContextStep__PIdentifier);
 end;
 
 procedure __RegisterConsts0;
@@ -111,6 +125,8 @@ RegRegisterMethod(TOPPGuideAPIContextStep,'IdentifierName',TypeInfo(_T2),[TypeIn
 RegRegisterMethod(TOPPGuideAPIContextStep,'IdentifierValue',TypeInfo(_T3),[TypeInfo(String)],Addr(TOPPGuideAPIContextStep.IdentifierValue));
 
 RegRegisterMethod(TOPPGuideAPIContextStep,'PIdentifierName',TypeInfo(_T4),[TypeInfo(String)],Addr(TOPPGuideAPIContextStep.PIdentifierName));
+
+RegRegisterMethod(TOPPGuideAPIContextStep,'PIdentifierValue',TypeInfo(_T5),[TypeInfo(String)],Addr(TOPPGuideAPIContextStep.PIdentifierValue));
 
 end;
 initialization

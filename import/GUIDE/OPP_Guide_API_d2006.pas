@@ -20,6 +20,8 @@ uses
   Classes,
   SysUtils,
   OPP_Guide_Executor_State,
+  OPP_Guide_API_Identifiable,
+  OPP_Guide_API_Object_Converter,
   OPP_Guide_API;
 function ConvertTOPPGuideExecutorRunStateToVariant(var R : TOPPGuideExecutorRunState) : OleVariant;
 function ConvertVariantToTOPPGuideExecutorRunState(const V : OleVariant) : TOPPGuideExecutorRunState;

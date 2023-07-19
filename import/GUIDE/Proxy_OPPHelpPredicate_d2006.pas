@@ -45,8 +45,41 @@ p1 : Boolean): Boolean of object;
 
 _T8 = function (p0 : TStream): Boolean of object;
 
+function __DC__GetTProxy_OPPHelpPredicate__Filename(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TProxy_OPPHelpPredicate(Instance).Filename;
+end;
+
+procedure __DC__SetTProxy_OPPHelpPredicate__Filename(Instance : TObject; Params : PVariantArgList);
+begin
+TProxy_OPPHelpPredicate(Instance).Filename:=OleVariant(Params^[0]);
+end;
+
+function __DC__GetTProxy_OPPHelpPredicate__KeywordType(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TProxy_OPPHelpPredicate(Instance).KeywordType;
+end;
+
+procedure __DC__SetTProxy_OPPHelpPredicate__KeywordType(Instance : TObject; Params : PVariantArgList);
+begin
+TProxy_OPPHelpPredicate(Instance).KeywordType:=OleVariant(Params^[0]);
+end;
+
+function __DC__GetTProxy_OPPHelpPredicate__Value(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TProxy_OPPHelpPredicate(Instance).Value;
+end;
+
+procedure __DC__SetTProxy_OPPHelpPredicate__Value(Instance : TObject; Params : PVariantArgList);
+begin
+TProxy_OPPHelpPredicate(Instance).Value:=OleVariant(Params^[0]);
+end;
+
 procedure __RegisterProps;
 begin
+RegisterProperty(TProxy_OPPHelpPredicate,'Filename',__DC__GetTProxy_OPPHelpPredicate__Filename,__DC__SetTProxy_OPPHelpPredicate__Filename);
+RegisterProperty(TProxy_OPPHelpPredicate,'KeywordType',__DC__GetTProxy_OPPHelpPredicate__KeywordType,__DC__SetTProxy_OPPHelpPredicate__KeywordType);
+RegisterProperty(TProxy_OPPHelpPredicate,'Value',__DC__GetTProxy_OPPHelpPredicate__Value,__DC__SetTProxy_OPPHelpPredicate__Value);
 end;
 
 procedure __RegisterConsts0;

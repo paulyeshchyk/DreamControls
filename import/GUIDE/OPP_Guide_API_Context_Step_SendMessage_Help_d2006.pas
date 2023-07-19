@@ -22,6 +22,7 @@ uses
   OPP_Guide_Executor_State,
   OPP_Guide_API_Context_Step,
   Proxy_OPPHelpPredicate,
+  OPP_Guide_Executor_State_Helper,
   OPP_Guide_API_Context_Step_SendMessage_Help;
 implementation
 {$IFDEF D3}
@@ -32,6 +33,16 @@ type
 {$ENDIF}
 type
 _T0 = procedure (p0 : TProxy_OPPHelpPredicate) of object;
+
+function __DC__GetTOPPGuideAPIContextStepSendMessageHelp__Predicate(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := VarFromObject(TOPPGuideAPIContextStepSendMessageHelp(Instance).Predicate);
+end;
+
+procedure __DC__SetTOPPGuideAPIContextStepSendMessageHelp__Predicate(Instance : TObject; Params : PVariantArgList);
+begin
+TOPPGuideAPIContextStepSendMessageHelp(Instance).Predicate:=TProxy_OPPHelpPredicate(VarToObject(OleVariant(Params^[0])));
+end;
 
 function __DC__GetTOPPGuideAPIContextStepSendMessageHelp__TargetApplicationHandle(Instance : TObject; Params : PVariantArgList) : OleVariant;
 begin
@@ -45,6 +56,7 @@ end;
 
 procedure __RegisterProps;
 begin
+RegisterProperty(TOPPGuideAPIContextStepSendMessageHelp,'Predicate',__DC__GetTOPPGuideAPIContextStepSendMessageHelp__Predicate,__DC__SetTOPPGuideAPIContextStepSendMessageHelp__Predicate);
 RegisterProperty(TOPPGuideAPIContextStepSendMessageHelp,'TargetApplicationHandle',__DC__GetTOPPGuideAPIContextStepSendMessageHelp__TargetApplicationHandle,__DC__SetTOPPGuideAPIContextStepSendMessageHelp__TargetApplicationHandle);
 end;
 

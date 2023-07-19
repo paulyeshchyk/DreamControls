@@ -22,7 +22,7 @@ uses
   OPP_Guide_API,
   OPP_Guide_API_Context,
   OPP_Guide_API_Context_Step,
-  OPP_Guide_Executor_State,
+  OPP_Guide_API_Context_Step_SendMessage_Help,
   OPP_Guide_API_Context_Step_Process;
 implementation
 {$IFDEF D3}

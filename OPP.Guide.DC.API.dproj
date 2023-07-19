@@ -119,6 +119,7 @@
         <DCCReference Include="import\GUIDE\Proxy_OPPHelpPredicate_d2006.pas"/>
         <DCCReference Include="import\GUIDE\OPP_Help_API_d2006.pas"/>
         <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Helper_d2006.pas"/>
+        <DCCReference Include="import\GUIDE\OPP_Guide_API_Identifiable_d2006.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
