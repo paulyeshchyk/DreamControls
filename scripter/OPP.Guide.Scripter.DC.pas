@@ -76,19 +76,11 @@ begin
 
     AStream.Position := 0;
     fDCScripter.Script.LoadFromStream(AStream);
-    try
-      if fDCScripter.CheckSyntaxEx(errLine, errChar, false) then
-      begin
-        result := Null;
-      end else begin
-        result := Format('Syntax error at: line %d, char %d', [errLine, errChar]);
-      end;
-    except
-      on E: Exception do
-      begin
-        result := E.message;
-        eventLogger.Error(E, 'DC')
-      end;
+    if fDCScripter.CheckSyntaxEx(errLine, errChar, false) then
+    begin
+      result := Null;
+    end else begin
+      result := Format('Syntax error at: line %d, char %d', [errLine, errChar]);
     end;
   finally
     fDCScripter.Free;
@@ -109,20 +101,12 @@ begin
 
     AStream.Position := 0;
     fDCScripter.Script.LoadFromStream(AStream);
-    try
-      if fDCScripter.CheckSyntaxEx(errLine, errChar, false) then
-      begin
-        result := fDCScripter.DispatchMethod('Execute', [AIdentifiable.IdentifierValue]);
-      end else begin
-        result := Format('Syntax error at: line %d, char %d', [errLine, errChar]);
-        eventLogger.Error(result, 'DC');
-      end;
-    except
-      on E: Exception do
-      begin
-        result := E.message;
-        eventLogger.Error(E, 'DC')
-      end;
+    if fDCScripter.CheckSyntaxEx(errLine, errChar, false) then
+    begin
+      result := fDCScripter.DispatchMethod('Execute', [AIdentifiable.IdentifierValue]);
+    end else begin
+      result := Format('Syntax error at: line %d, char %d', [errLine, errChar]);
+      eventLogger.Error(result, 'DC');
     end;
   finally
     fDCScripter.Free;

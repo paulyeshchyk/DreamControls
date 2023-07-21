@@ -40,9 +40,6 @@ published
 procedure setstepIdentifier(const val : AnsiString);
 function getstepIdentifier : AnsiString;
 property stepIdentifier : AnsiString read getstepIdentifier write setstepIdentifier;
-procedure setuserInfo(const val : AnsiString);
-function getuserInfo : AnsiString;
-property userInfo : AnsiString read getuserInfo write setuserInfo;
 procedure setexecutionResult(const val : AnsiString);
 function getexecutionResult : AnsiString;
 property executionResult : AnsiString read getexecutionResult write setexecutionResult;
@@ -80,14 +77,6 @@ end;
 function __TOPPGuideExecutorRunState__Wrapper.getstepIdentifier : AnsiString;
 begin
 result := TOPPGuideExecutorRunState(GetRecordPtr^).stepIdentifier;
-end;
-procedure __TOPPGuideExecutorRunState__Wrapper.setuserInfo(const val : AnsiString);
-begin
-TOPPGuideExecutorRunState(GetRecordPtr^).userInfo := val;
-end;
-function __TOPPGuideExecutorRunState__Wrapper.getuserInfo : AnsiString;
-begin
-result := TOPPGuideExecutorRunState(GetRecordPtr^).userInfo;
 end;
 procedure __TOPPGuideExecutorRunState__Wrapper.setexecutionResult(const val : AnsiString);
 begin
