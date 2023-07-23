@@ -37,9 +37,6 @@ package OPP.Guide.DC;
 {$RUNONLY}
 {$IMPLICITBUILD OFF}
 
-requires
-  OPP.Guide.API;
-
 contains
   win_imp in 'import\DC\win_imp.pas',
   vclimp in 'import\DC\vclimp.pas',

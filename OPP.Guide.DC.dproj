@@ -129,21 +129,20 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="OPP.Guide.API.dcp"/>
         <DCCReference Include="import\DC\win_imp.pas"/>
         <DCCReference Include="import\DC\vclimp.pas"/>
         <DCCReference Include="import\DC\impreg.pas"/>
         <DCCReference Include="units\dcconsts.pas"/>
         <DCCReference Include="units\dcapp.pas"/>
-        <BuildConfiguration Include="Debug">
-            <Key>Cfg_2</Key>
-            <CfgParent>Base</CfgParent>
-        </BuildConfiguration>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
         <BuildConfiguration Include="Release">
             <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
         </BuildConfiguration>
     </ItemGroup>

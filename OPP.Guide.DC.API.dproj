@@ -104,9 +104,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="OPP.Guide.DC.dcp"/>
-        <DCCReference Include="OPP.Guide.API.dcp"/>
-        <DCCReference Include="OPPHelp.dcp"/>
         <DCCReference Include="import\GUIDE\dctestunit.pas"/>
         <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_d2006.pas"/>
         <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_d2006.pas"/>
@@ -120,15 +117,15 @@
         <DCCReference Include="import\GUIDE\OPP_Help_API_d2006.pas"/>
         <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Helper_d2006.pas"/>
         <DCCReference Include="import\GUIDE\OPP_Guide_API_Identifiable_d2006.pas"/>
-        <BuildConfiguration Include="Release">
-            <Key>Cfg_2</Key>
-            <CfgParent>Base</CfgParent>
-        </BuildConfiguration>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
         </BuildConfiguration>
     </ItemGroup>

@@ -28,11 +28,6 @@ package OPP.Guide.DC.API;
 {$RUNONLY}
 {$IMPLICITBUILD OFF}
 
-requires
-  OPP.Guide.DC,
-  OPP.Guide.API,
-  OPPHelp;
-
 contains
   dctestunit in 'import\GUIDE\dctestunit.pas',
   OPP_Guide_API_Context_d2006 in 'import\GUIDE\OPP_Guide_API_Context_d2006.pas',
