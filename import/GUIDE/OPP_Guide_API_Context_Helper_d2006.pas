@@ -17,6 +17,10 @@ uses
   dcsystem,
   dcdreamlib,
   OPP_Guide_API_Context,
+  OPP,
+  Guide,
+  API,
+  Context,
   Proxy_OPPHelpPredicate,
   OPP_Guide_API_Context_Helper;
 implementation

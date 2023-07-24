@@ -18,12 +18,9 @@ uses
   Variants,
   Classes,
   SysUtils,
-  OPP_Guide_API_Object_Converter,
-  OPP_Guide_API_Dataprovider,
-  OPP_Guide_API_Identifiable,
   OPP_Guide_API;
-function ConvertTOPPGuideExecutorRunStateToVariant(var R : TOPPGuideExecutorRunState) : OleVariant;
-function ConvertVariantToTOPPGuideExecutorRunState(const V : OleVariant) : TOPPGuideExecutorRunState;
+function ConvertTOPPGuideAPIExecutionStateToVariant(var R : TOPPGuideAPIExecutionState) : OleVariant;
+function ConvertVariantToTOPPGuideAPIExecutionState(const V : OleVariant) : TOPPGuideAPIExecutionState;
 implementation
 {$IFDEF D3}
 {$ELSE}
@@ -31,9 +28,9 @@ uses ole2;
 type
   OleVariant = Variant;
 {$ENDIF}
-type __TOPPGuideExecutorRunState__Wrapper = class(TDCRecordWrapper)
+type __TOPPGuideAPIExecutionState__Wrapper = class(TDCRecordWrapper)
 private
-fR : TOPPGuideExecutorRunState;
+fR : TOPPGuideAPIExecutionState;
 public
 function GetRecordPtr : pointer; override;
 published
@@ -44,55 +41,55 @@ procedure setexecutionResult(const val : AnsiString);
 function getexecutionResult : AnsiString;
 property executionResult : AnsiString read getexecutionResult write setexecutionResult;
 end;
-function __TOPPGuideExecutorRunState__Wrapper.GetRecordPtr : pointer;
+function __TOPPGuideAPIExecutionState__Wrapper.GetRecordPtr : pointer;
 begin
 result := @fR;
 end;
-procedure __TOPPGuideExecutorRunState__Wrapper.setstepIdentifier(const val : AnsiString);
+procedure __TOPPGuideAPIExecutionState__Wrapper.setstepIdentifier(const val : AnsiString);
 begin
-TOPPGuideExecutorRunState(GetRecordPtr^).stepIdentifier := val;
+TOPPGuideAPIExecutionState(GetRecordPtr^).stepIdentifier := val;
 end;
-function __TOPPGuideExecutorRunState__Wrapper.getstepIdentifier : AnsiString;
+function __TOPPGuideAPIExecutionState__Wrapper.getstepIdentifier : AnsiString;
 begin
-result := TOPPGuideExecutorRunState(GetRecordPtr^).stepIdentifier;
+result := TOPPGuideAPIExecutionState(GetRecordPtr^).stepIdentifier;
 end;
-procedure __TOPPGuideExecutorRunState__Wrapper.setexecutionResult(const val : AnsiString);
+procedure __TOPPGuideAPIExecutionState__Wrapper.setexecutionResult(const val : AnsiString);
 begin
-TOPPGuideExecutorRunState(GetRecordPtr^).executionResult := val;
+TOPPGuideAPIExecutionState(GetRecordPtr^).executionResult := val;
 end;
-function __TOPPGuideExecutorRunState__Wrapper.getexecutionResult : AnsiString;
+function __TOPPGuideAPIExecutionState__Wrapper.getexecutionResult : AnsiString;
 begin
-result := TOPPGuideExecutorRunState(GetRecordPtr^).executionResult;
+result := TOPPGuideAPIExecutionState(GetRecordPtr^).executionResult;
 end;
-function _TOPPGuideExecutorRunState_ : IDispatch;
+function _TOPPGuideAPIExecutionState_ : IDispatch;
 begin
-  result := __TOPPGuideExecutorRunState__Wrapper.Create;
+  result := __TOPPGuideAPIExecutionState__Wrapper.Create;
 end;
 
-type __TOPPGuideExecutorRunState__Wrapper__ = class(__TOPPGuideExecutorRunState__Wrapper)
+type __TOPPGuideAPIExecutionState__Wrapper__ = class(__TOPPGuideAPIExecutionState__Wrapper)
 private
 fRPtr : pointer;
 function GetRecordPtr : pointer; override;
 end;
-function __TOPPGuideExecutorRunState__Wrapper__.GetRecordPtr : pointer;
+function __TOPPGuideAPIExecutionState__Wrapper__.GetRecordPtr : pointer;
 begin
 result := fRPtr;
 end;
-function ConvertTOPPGuideExecutorRunStateToVariant(var R : TOPPGuideExecutorRunState) : OleVariant;
+function ConvertTOPPGuideAPIExecutionStateToVariant(var R : TOPPGuideAPIExecutionState) : OleVariant;
 var
-__rw : __TOPPGuideExecutorRunState__Wrapper__;
+__rw : __TOPPGuideAPIExecutionState__Wrapper__;
 begin
-__rw := __TOPPGuideExecutorRunState__Wrapper__.Create;
+__rw := __TOPPGuideAPIExecutionState__Wrapper__.Create;
 __rw.fRPtr := @R;
 result := IDispatch(__rw);
 end;
-function ConvertVariantToTOPPGuideExecutorRunState(const V : OleVariant) : TOPPGuideExecutorRunState;
+function ConvertVariantToTOPPGuideAPIExecutionState(const V : OleVariant) : TOPPGuideAPIExecutionState;
 var
 _idisp : IDispatch;
 begin
 _idisp := VarToInterface(v);
 if _idisp = nil then exit;
-result := TOPPGuideExecutorRunState((_idisp as IDCRecordWrapper).GetRecordPtr^);
+result := TOPPGuideAPIExecutionState((_idisp as IDCRecordWrapper).GetRecordPtr^);
 end;
 procedure __RegisterProps;
 begin
@@ -136,7 +133,7 @@ end;
 
 var __RegisteredMethods : TList;
 const MethodNames : array[0..0] of string = (
-'TOPPGuideExecutorRunState'
+'TOPPGuideAPIExecutionState'
 );
 
 procedure __UnregisterProcs;
@@ -149,7 +146,7 @@ end;
 
 procedure _mreg_0;
 begin
-__RegisteredMethods.Add(RegisterRWProc(MethodNames[0],Addr(_TOPPGuideExecutorRunState_)));
+__RegisteredMethods.Add(RegisterRWProc(MethodNames[0],Addr(_TOPPGuideAPIExecutionState_)));
 end;
 initialization
 __RegisteredMethods := TList.Create;

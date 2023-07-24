@@ -103,7 +103,7 @@ begin
     fDCScripter.Script.LoadFromStream(AStream);
     if fDCScripter.CheckSyntaxEx(errLine, errChar, false) then
     begin
-      result := fDCScripter.DispatchMethod('Execute', [AIdentifiable.IdentifierValue]);
+      result := fDCScripter.DispatchMethod('Execute', [AIdentifiable.IdentifierFieldValue]);
     end else begin
       result := Format('Syntax error at: line %d, char %d', [errLine, errChar]);
       eventLogger.Error(result, 'DC');

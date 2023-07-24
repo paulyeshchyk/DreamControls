@@ -16,11 +16,7 @@ uses
   dcscript,
   dcsystem,
   dcdreamlib,
-  SysUtils,
   OPP_Guide_API,
-  OPP_Guide_API_Context_Step,
-  OPP_Guide_API_Context_Map,
-  OPP_Guide_API_Context_Step_Result,
   OPP_Guide_API_Dataprovider,
   OPP_Guide_API_Context;
 implementation
@@ -30,28 +26,6 @@ uses ole2;
 type
   OleVariant = Variant;
 {$ENDIF}
-type
-_T0 = function : TOPPGuideAPIContext of object;
-
-_T1 = procedure (const p0 : TOPPGuideExecutorRunState) of object;
-
-_T2 = function (const p0 : String): TOPPGuideExecutorRunState of object;
-
-_T3 = procedure (const p0 : TOPPGuideAPIContextStep;
-p1 : String) of object;
-
-{_T4 = procedure (p0 : IOPPGuideAPIContext) of object;}
-
-{_T5 = procedure (p0 : IOPPGuideAPIContext) of object;}
-
-_T6 = procedure  of object;
-
-_T7 = function (p0 : String): TOPPGuideAPIContextStepResult of object;
-
-_T8 = _T7;
-
-_T9 = procedure (p0 : IOPPGuideAPIDataprovider) of object;
-
 procedure __RegisterProps;
 begin
 end;
@@ -64,54 +38,19 @@ procedure __UnregisterConsts0;
 begin
 end;
 
-const ClassList : array[0..0] of TClass = (
-TOPPGuideAPIContext
-);
 procedure __RegisterClasses;
 begin
-RegisterClassesInScript(ClassList);
 end;
 
 procedure __UnRegisterClasses;
 begin
-UnRegisterClassesInScript(ClassList);
 end;
 
-var __RegisteredMethods : TList;
 procedure _mreg_0;
 begin
-RegisterProc(TOPPGuideAPIContext,'shared',mtClassMethod,TypeInfo(_T0),[TypeInfo(TOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.shared),cRegister);
-
-RegRegisterMethod(TOPPGuideAPIContext,'PushStepState',TypeInfo(_T1),[
-TypeInfo(TOPPGuideExecutorRunState)],Addr(TOPPGuideAPIContext.PushStepState));
-
-RegRegisterMethod(TOPPGuideAPIContext,'PullStepState',TypeInfo(_T2),[
-TypeInfo(String),TypeInfo(TOPPGuideExecutorRunState)],Addr(TOPPGuideAPIContext.PullStepState));
-
-RegRegisterMethod(TOPPGuideAPIContext,'Execute',TypeInfo(_T3),[
-TypeInfo(TOPPGuideAPIContextStep),
-TypeInfo(String)],Addr(TOPPGuideAPIContext.Execute));
-
-RegRegisterMethod(TOPPGuideAPIContext,'Clear',TypeInfo(_T6),NoParams,Addr(TOPPGuideAPIContext.Clear));
-
-RegRegisterMethod(TOPPGuideAPIContext,'GetParentStepResult',TypeInfo(_T7),[
-TypeInfo(String),TypeInfo(TOPPGuideAPIContextStepResult)],Addr(TOPPGuideAPIContext.GetParentStepResult));
-
-RegRegisterMethod(TOPPGuideAPIContext,'GetCustomStepResult',TypeInfo(_T8),[
-TypeInfo(String),TypeInfo(TOPPGuideAPIContextStepResult)],Addr(TOPPGuideAPIContext.GetCustomStepResult));
-
-RegRegisterMethod(TOPPGuideAPIContext,'SetDataprovider',TypeInfo(_T9),[
-TypeInfo(IOPPGuideAPIDataprovider)],Addr(TOPPGuideAPIContext.SetDataprovider));
-
 end;
 initialization
 _mreg_0;
-{RegRegisterMethod(TOPPGuideAPIContext,'Add',TypeInfo(_T4),[
-TypeInfo(IOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.Add))}
-
-{RegRegisterMethod(TOPPGuideAPIContext,'Remove',TypeInfo(_T5),[
-TypeInfo(IOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.Remove))}
-
 __RegisterClasses;
 __RegisterConsts0;
 __RegisterProps;

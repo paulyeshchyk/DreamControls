@@ -16,6 +16,7 @@ uses
   dcsystem,
   dcdreamlib,
   Classes,
+  OPP_Guide_API,
   OPP_Guide_API_Identifiable,
   OPP_Guide_API_Scripter;
 implementation

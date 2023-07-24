@@ -16,6 +16,7 @@ uses
   dcscript,
   dcsystem,
   dcdreamlib,
+  OPP_Guide_API,
   OPP_Guide_API_Identifiable;
 implementation
 {$IFDEF D3}
@@ -24,8 +25,59 @@ uses ole2;
 type
   OleVariant = Variant;
 {$ENDIF}
+type
+_T0 = function : String of object;
+
+_T1 = _T0;
+
+_T2 = _T0;
+
+_T3 = _T0;
+
+_T4 = _T0;
+
+function __DC__GetTOPPGuideAPIScriptContainer__TheScriptName(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIScriptContainer(Instance).TheScriptName;
+end;
+
+function __DC__GetTOPPGuideAPIScriptContainer__IdentifierValue(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIScriptContainer(Instance).IdentifierValue;
+end;
+
+procedure __DC__SetTOPPGuideAPIScriptContainer__IdentifierValue(Instance : TObject; Params : PVariantArgList);
+begin
+TOPPGuideAPIScriptContainer(Instance).IdentifierValue:=OleVariant(Params^[0]);
+end;
+
+function __DC__GetTOPPGuideAPIScriptContainer__IdentifierName(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIScriptContainer(Instance).IdentifierName;
+end;
+
+function __DC__GetTOPPGuideAPIScriptContainer__PIdentifierValue(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIScriptContainer(Instance).PIdentifierValue;
+end;
+
+procedure __DC__SetTOPPGuideAPIScriptContainer__PIdentifierValue(Instance : TObject; Params : PVariantArgList);
+begin
+TOPPGuideAPIScriptContainer(Instance).PIdentifierValue:=OleVariant(Params^[0]);
+end;
+
+function __DC__GetTOPPGuideAPIScriptContainer__PIdentifierName(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIScriptContainer(Instance).PIdentifierName;
+end;
+
 procedure __RegisterProps;
 begin
+RegisterProperty(TOPPGuideAPIScriptContainer,'TheScriptName',__DC__GetTOPPGuideAPIScriptContainer__TheScriptName,nil);
+RegisterProperty(TOPPGuideAPIScriptContainer,'IdentifierValue',__DC__GetTOPPGuideAPIScriptContainer__IdentifierValue,__DC__SetTOPPGuideAPIScriptContainer__IdentifierValue);
+RegisterProperty(TOPPGuideAPIScriptContainer,'IdentifierName',__DC__GetTOPPGuideAPIScriptContainer__IdentifierName,nil);
+RegisterProperty(TOPPGuideAPIScriptContainer,'PIdentifierValue',__DC__GetTOPPGuideAPIScriptContainer__PIdentifierValue,__DC__SetTOPPGuideAPIScriptContainer__PIdentifierValue);
+RegisterProperty(TOPPGuideAPIScriptContainer,'PIdentifierName',__DC__GetTOPPGuideAPIScriptContainer__PIdentifierName,nil);
 end;
 
 procedure __RegisterConsts0;
@@ -36,16 +88,32 @@ procedure __UnregisterConsts0;
 begin
 end;
 
+const ClassList : array[0..0] of TClass = (
+TOPPGuideAPIScriptContainer
+);
 procedure __RegisterClasses;
 begin
+RegisterClassesInScript(ClassList);
 end;
 
 procedure __UnRegisterClasses;
 begin
+UnRegisterClassesInScript(ClassList);
 end;
 
+var __RegisteredMethods : TList;
 procedure _mreg_0;
 begin
+RegRegisterMethod(TOPPGuideAPIScriptContainer,'PIdentifierFieldName',TypeInfo(_T0),[TypeInfo(String)],Addr(TOPPGuideAPIScriptContainer.PIdentifierFieldName));
+
+RegRegisterMethod(TOPPGuideAPIScriptContainer,'PIdentifierFieldValue',TypeInfo(_T1),[TypeInfo(String)],Addr(TOPPGuideAPIScriptContainer.PIdentifierFieldValue));
+
+RegRegisterMethod(TOPPGuideAPIScriptContainer,'IdentifierFieldName',TypeInfo(_T2),[TypeInfo(String)],Addr(TOPPGuideAPIScriptContainer.IdentifierFieldName));
+
+RegRegisterMethod(TOPPGuideAPIScriptContainer,'IdentifierFieldValue',TypeInfo(_T3),[TypeInfo(String)],Addr(TOPPGuideAPIScriptContainer.IdentifierFieldValue));
+
+RegRegisterMethod(TOPPGuideAPIScriptContainer,'ScriptFieldName',TypeInfo(_T4),[TypeInfo(String)],Addr(TOPPGuideAPIScriptContainer.ScriptFieldName));
+
 end;
 initialization
 _mreg_0;
