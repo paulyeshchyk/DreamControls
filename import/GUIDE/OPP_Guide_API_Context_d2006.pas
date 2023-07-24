@@ -20,10 +20,9 @@ uses
   OPP_Guide_API,
   OPP_Guide_API_Context_Step,
   OPP_Guide_API_Context_Map,
-  OPP_Guide_Executor_State,
+  OPP_Guide_API_Context_Step_Result,
+  OPP_Guide_API_Dataprovider,
   OPP_Guide_API_Context;
-function ConvertTOPPGuideExecutorRunStateToVariant(var R : TOPPGuideExecutorRunState) : OleVariant;
-function ConvertVariantToTOPPGuideExecutorRunState(const V : OleVariant) : TOPPGuideExecutorRunState;
 implementation
 {$IFDEF D3}
 {$ELSE}
@@ -31,25 +30,12 @@ uses ole2;
 type
   OleVariant = Variant;
 {$ENDIF}
-type __TOPPGuideExecutorRunState__Wrapper = class(TDCRecordWrapper)
-private
-fR : TOPPGuideExecutorRunState;
-public
-function GetRecordPtr : pointer; override;
-published
-procedure setstepIdentifier(const val : AnsiString);
-function getstepIdentifier : AnsiString;
-property stepIdentifier : AnsiString read getstepIdentifier write setstepIdentifier;
-procedure setexecutionResult(const val : AnsiString);
-function getexecutionResult : AnsiString;
-property executionResult : AnsiString read getexecutionResult write setexecutionResult;
-end;
 type
 _T0 = function : TOPPGuideAPIContext of object;
 
-_T1 = procedure (const p0 : IDispatch) of object;
+_T1 = procedure (const p0 : TOPPGuideExecutorRunState) of object;
 
-_T2 = function (const p0 : String): IDispatch of object;
+_T2 = function (const p0 : String): TOPPGuideExecutorRunState of object;
 
 _T3 = procedure (const p0 : TOPPGuideAPIContextStep;
 p1 : String) of object;
@@ -64,77 +50,8 @@ _T7 = function (p0 : String): TOPPGuideAPIContextStepResult of object;
 
 _T8 = _T7;
 
-{_T9 = procedure (p0 : IOPPGuideAPIDataprovider) of object;}
+_T9 = procedure (p0 : IOPPGuideAPIDataprovider) of object;
 
-function __TOPPGuideExecutorRunState__Wrapper.GetRecordPtr : pointer;
-begin
-result := @fR;
-end;
-procedure __TOPPGuideExecutorRunState__Wrapper.setstepIdentifier(const val : AnsiString);
-begin
-TOPPGuideExecutorRunState(GetRecordPtr^).stepIdentifier := val;
-end;
-function __TOPPGuideExecutorRunState__Wrapper.getstepIdentifier : AnsiString;
-begin
-result := TOPPGuideExecutorRunState(GetRecordPtr^).stepIdentifier;
-end;
-procedure __TOPPGuideExecutorRunState__Wrapper.setexecutionResult(const val : AnsiString);
-begin
-TOPPGuideExecutorRunState(GetRecordPtr^).executionResult := val;
-end;
-function __TOPPGuideExecutorRunState__Wrapper.getexecutionResult : AnsiString;
-begin
-result := TOPPGuideExecutorRunState(GetRecordPtr^).executionResult;
-end;
-procedure __TOPPGuideAPIContext__PushStepState__Wrapper(__Instance : TOPPGuideAPIContext;
-const p0 : IDispatch);
-var
-__p0 : ^TOPPGuideExecutorRunState;
-__i0 : IDispatch;
-begin
-if p0 = nil then exit;
-__p0 := (p0 as IDCRecordWrapper).GetRecordPtr;
-TOPPGuideAPIContext(__Instance).PushStepState(__p0^);
-end;
-
-function __TOPPGuideAPIContext__PullStepState__Wrapper(__Instance : TOPPGuideAPIContext;
-const p0 : String): IDispatch;
-var
-__result : TOPPGuideExecutorRunState;
-__wrapper : __TOPPGuideExecutorRunState__Wrapper;
-begin
-__result := TOPPGuideAPIContext(__Instance).PullStepState(p0);
-__wrapper := __TOPPGuideExecutorRunState__Wrapper.Create;
-__wrapper.fR := __result;
-result := IDispatch(__wrapper);
-end;
-
-
-type __TOPPGuideExecutorRunState__Wrapper__ = class(__TOPPGuideExecutorRunState__Wrapper)
-private
-fRPtr : pointer;
-function GetRecordPtr : pointer; override;
-end;
-function __TOPPGuideExecutorRunState__Wrapper__.GetRecordPtr : pointer;
-begin
-result := fRPtr;
-end;
-function ConvertTOPPGuideExecutorRunStateToVariant(var R : TOPPGuideExecutorRunState) : OleVariant;
-var
-__rw : __TOPPGuideExecutorRunState__Wrapper__;
-begin
-__rw := __TOPPGuideExecutorRunState__Wrapper__.Create;
-__rw.fRPtr := @R;
-result := IDispatch(__rw);
-end;
-function ConvertVariantToTOPPGuideExecutorRunState(const V : OleVariant) : TOPPGuideExecutorRunState;
-var
-_idisp : IDispatch;
-begin
-_idisp := VarToInterface(v);
-if _idisp = nil then exit;
-result := TOPPGuideExecutorRunState((_idisp as IDCRecordWrapper).GetRecordPtr^);
-end;
 procedure __RegisterProps;
 begin
 end;
@@ -166,10 +83,10 @@ begin
 RegisterProc(TOPPGuideAPIContext,'shared',mtClassMethod,TypeInfo(_T0),[TypeInfo(TOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.shared),cRegister);
 
 RegRegisterMethod(TOPPGuideAPIContext,'PushStepState',TypeInfo(_T1),[
-TypeInfo(IDispatch)],Addr(__TOPPGuideAPIContext__PushStepState__Wrapper));
+TypeInfo(TOPPGuideExecutorRunState)],Addr(TOPPGuideAPIContext.PushStepState));
 
 RegRegisterMethod(TOPPGuideAPIContext,'PullStepState',TypeInfo(_T2),[
-TypeInfo(String),TypeInfo(IDispatch)],Addr(__TOPPGuideAPIContext__PullStepState__Wrapper));
+TypeInfo(String),TypeInfo(TOPPGuideExecutorRunState)],Addr(TOPPGuideAPIContext.PullStepState));
 
 RegRegisterMethod(TOPPGuideAPIContext,'Execute',TypeInfo(_T3),[
 TypeInfo(TOPPGuideAPIContextStep),
@@ -183,6 +100,9 @@ TypeInfo(String),TypeInfo(TOPPGuideAPIContextStepResult)],Addr(TOPPGuideAPIConte
 RegRegisterMethod(TOPPGuideAPIContext,'GetCustomStepResult',TypeInfo(_T8),[
 TypeInfo(String),TypeInfo(TOPPGuideAPIContextStepResult)],Addr(TOPPGuideAPIContext.GetCustomStepResult));
 
+RegRegisterMethod(TOPPGuideAPIContext,'SetDataprovider',TypeInfo(_T9),[
+TypeInfo(IOPPGuideAPIDataprovider)],Addr(TOPPGuideAPIContext.SetDataprovider));
+
 end;
 initialization
 _mreg_0;
@@ -191,9 +111,6 @@ TypeInfo(IOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.Add))}
 
 {RegRegisterMethod(TOPPGuideAPIContext,'Remove',TypeInfo(_T5),[
 TypeInfo(IOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.Remove))}
-
-{RegRegisterMethod(TOPPGuideAPIContext,'SetDataprovider',TypeInfo(_T9),[
-TypeInfo(IOPPGuideAPIDataprovider)],Addr(TOPPGuideAPIContext.SetDataprovider))}
 
 __RegisterClasses;
 __RegisterConsts0;

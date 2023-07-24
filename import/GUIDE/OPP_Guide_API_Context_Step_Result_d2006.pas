@@ -4,24 +4,25 @@
 {                                                       }
 {*******************************************************}
 
-Unit OPP_Guide_API_d2006;
+Unit OPP_Guide_API_Context_Step_Result_d2006;
 interface
 {$I dc.inc}
 {$D-,L-,Y-}
 {$HINTS OFF}
 {$WARNINGS OFF}
 uses
-  activex,
-  dcscript,
-  dcsystem,
-  dcdreamlib,
   Variants,
-  Classes,
   SysUtils,
   OPP_Guide_API_Object_Converter,
   OPP_Guide_API_Dataprovider,
   OPP_Guide_API_Identifiable,
-  OPP_Guide_API;
+  activex,
+  classes,
+  dcscript,
+  dcsystem,
+  dcdreamlib,
+  OPP_Guide_API,
+  OPP_Guide_API_Context_Step_Result;
 function ConvertTOPPGuideExecutorRunStateToVariant(var R : TOPPGuideExecutorRunState) : OleVariant;
 function ConvertVariantToTOPPGuideExecutorRunState(const V : OleVariant) : TOPPGuideExecutorRunState;
 implementation
@@ -44,6 +45,9 @@ procedure setexecutionResult(const val : AnsiString);
 function getexecutionResult : AnsiString;
 property executionResult : AnsiString read getexecutionResult write setexecutionResult;
 end;
+type
+_T0 = procedure  of object;
+
 function __TOPPGuideExecutorRunState__Wrapper.GetRecordPtr : pointer;
 begin
 result := @fR;
@@ -63,10 +67,6 @@ end;
 function __TOPPGuideExecutorRunState__Wrapper.getexecutionResult : AnsiString;
 begin
 result := TOPPGuideExecutorRunState(GetRecordPtr^).executionResult;
-end;
-function _TOPPGuideExecutorRunState_ : IDispatch;
-begin
-  result := __TOPPGuideExecutorRunState__Wrapper.Create;
 end;
 
 type __TOPPGuideExecutorRunState__Wrapper__ = class(__TOPPGuideExecutorRunState__Wrapper)
@@ -94,65 +94,91 @@ _idisp := VarToInterface(v);
 if _idisp = nil then exit;
 result := TOPPGuideExecutorRunState((_idisp as IDCRecordWrapper).GetRecordPtr^);
 end;
-procedure __RegisterProps;
+function __DC__GetTOPPGuideAPIContextStepResult__State(Instance : TObject; Params : PVariantArgList) : OleVariant;
+var
+__wrapper : __TOPPGuideExecutorRunState__Wrapper;
 begin
+__wrapper := __TOPPGuideExecutorRunState__Wrapper.Create;
+__wrapper.fR := TOPPGuideAPIContextStepResult(Instance).State;
+result := IUnknown(__wrapper) as IDispatch;
 end;
 
-const __ConstNames0 : array[0..5] of string = (
-'rsvIdle'
-,'rsvStarted'
-,'rsvProgress'
-,'rsvFinished'
-,'rsvError'
-,'1'
-);
-var __RegisteredConstsList0 : TList;
+procedure __DC__SetTOPPGuideAPIContextStepResult__State(Instance : TObject; Params : PVariantArgList);
+var
+__idisp:IDispatch;
+__iwrapper:IDCRecordWrapper;
+begin
+__idisp:=DCVarToInterface(OleVariant(Params^[0]));
+if __idisp=nil then exit;
+__idisp.QueryInterface(IDCRecordWrapper, __iwrapper);
+TOPPGuideAPIContextStepResult(Instance).State:=TOPPGuideExecutorRunState(__iwrapper.GetRecordPtr^);
+end;
+
+function __DC__GetTOPPGuideAPIContextStepResult__Description(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIContextStepResult(Instance).Description;
+end;
+
+procedure __DC__SetTOPPGuideAPIContextStepResult__Description(Instance : TObject; Params : PVariantArgList);
+begin
+TOPPGuideAPIContextStepResult(Instance).Description:=OleVariant(Params^[0]);
+end;
+
+function __DC__GetTOPPGuideAPIContextStepResult__Value_str(Instance : TObject; Params : PVariantArgList) : OleVariant;
+begin
+result := TOPPGuideAPIContextStepResult(Instance).Value_str;
+end;
+
+procedure __DC__SetTOPPGuideAPIContextStepResult__Value_str(Instance : TObject; Params : PVariantArgList);
+begin
+TOPPGuideAPIContextStepResult(Instance).Value_str:=OleVariant(Params^[0]);
+end;
+
+function __DC__GetTOPPGuideAPIContextStepResult__theRecord(Instance : TObject; Params : PVariantArgList) : OleVariant;
+var
+__wrapper : __TOPPGuideExecutorRunState__Wrapper;
+begin
+__wrapper := __TOPPGuideExecutorRunState__Wrapper.Create;
+__wrapper.fR := TOPPGuideAPIContextStepResult(Instance).theRecord;
+result := IUnknown(__wrapper) as IDispatch;
+end;
+
+procedure __RegisterProps;
+begin
+RegisterProperty(TOPPGuideAPIContextStepResult,'State',__DC__GetTOPPGuideAPIContextStepResult__State,__DC__SetTOPPGuideAPIContextStepResult__State);
+RegisterProperty(TOPPGuideAPIContextStepResult,'Description',__DC__GetTOPPGuideAPIContextStepResult__Description,__DC__SetTOPPGuideAPIContextStepResult__Description);
+RegisterProperty(TOPPGuideAPIContextStepResult,'Value_str',__DC__GetTOPPGuideAPIContextStepResult__Value_str,__DC__SetTOPPGuideAPIContextStepResult__Value_str);
+RegisterProperty(TOPPGuideAPIContextStepResult,'theRecord',__DC__GetTOPPGuideAPIContextStepResult__theRecord,nil);
+end;
+
 procedure __RegisterConsts0;
 begin
-__RegisteredConstsList0 := TList.Create;
-__RegisteredConstsList0.Add(RegisterConst(__ConstNames0[0] ,rsvIdle));
-__RegisteredConstsList0.Add(RegisterConst(__ConstNames0[1] ,rsvStarted));
-__RegisteredConstsList0.Add(RegisterConst(__ConstNames0[2] ,rsvProgress));
-__RegisteredConstsList0.Add(RegisterConst(__ConstNames0[3] ,rsvFinished));
-__RegisteredConstsList0.Add(RegisterConst(__ConstNames0[4] ,rsvError));
-__RegisteredConstsList0.Add(RegisterConst(__ConstNames0[5] ,1));
 end;
 
 procedure __UnregisterConsts0;
-var i : integer;
 begin
-for i := 0 to 5 do
-UnregisterConst(__ConstNames0[i], __RegisteredConstsList0[i]);
-__RegisteredConstsList0.Free
 end;
 
+const ClassList : array[0..0] of TClass = (
+TOPPGuideAPIContextStepResult
+);
 procedure __RegisterClasses;
 begin
+RegisterClassesInScript(ClassList);
 end;
 
 procedure __UnRegisterClasses;
 begin
+UnRegisterClassesInScript(ClassList);
 end;
 
 var __RegisteredMethods : TList;
-const MethodNames : array[0..0] of string = (
-'TOPPGuideExecutorRunState'
-);
-
-procedure __UnregisterProcs;
-var i : integer;
-begin
-  for i := 0 to 0 do
-    UnregisterProcedure(MethodNames[i] ,__RegisteredMethods[i]);
-__RegisteredMethods.Free;
-end;
-
 procedure _mreg_0;
 begin
-__RegisteredMethods.Add(RegisterRWProc(MethodNames[0],Addr(_TOPPGuideExecutorRunState_)));
+RegisterProc(TOPPGuideAPIContextStepResult,'Create',mtConstructor,TypeInfo(_T0),NoParams,Addr(TOPPGuideAPIContextStepResult.Create),cRegister);
+
 end;
 initialization
-__RegisteredMethods := TList.Create;
 _mreg_0;
 __RegisterClasses;
 __RegisterConsts0;
@@ -161,5 +187,4 @@ __RegisterProps;
 finalization
 __UnRegisterClasses;
 __UnregisterConsts0;
-__UnregisterProcs;
 end.

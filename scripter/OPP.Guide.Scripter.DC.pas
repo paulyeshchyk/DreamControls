@@ -7,7 +7,7 @@ uses
   WinAPI.ActiveX,
   OPP_Guide_API,
   OPP_Guide_API_Identifiable,
-  OPP.Guide.Scripter;
+  OPP_Guide_API_Scripter;
 
 type
 

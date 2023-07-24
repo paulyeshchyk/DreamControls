@@ -4,7 +4,7 @@
 {                                                       }
 {*******************************************************}
 
-Unit OPP_Guide_API_d2006;
+Unit OPP_Guide_Executor_RunState_d2006;
 interface
 {$I dc.inc}
 {$D-,L-,Y-}
@@ -12,16 +12,11 @@ interface
 {$WARNINGS OFF}
 uses
   activex,
+  classes,
   dcscript,
   dcsystem,
   dcdreamlib,
-  Variants,
-  Classes,
-  SysUtils,
-  OPP_Guide_API_Object_Converter,
-  OPP_Guide_API_Dataprovider,
-  OPP_Guide_API_Identifiable,
-  OPP_Guide_API;
+  OPP_Guide_Executor_RunState;
 function ConvertTOPPGuideExecutorRunStateToVariant(var R : TOPPGuideExecutorRunState) : OleVariant;
 function ConvertVariantToTOPPGuideExecutorRunState(const V : OleVariant) : TOPPGuideExecutorRunState;
 implementation

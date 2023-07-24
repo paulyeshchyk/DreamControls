@@ -57,7 +57,7 @@
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
         <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
         <SanitizedProjectName>OPP_Guide_DC_API</SanitizedProjectName>
-        <DCC_UnitSearchPath>.\units;$(OPPHelp)\OPP.Help;$(OPPHelp)\OPP.Guide.API\exportable;$(OPPHelp)\OPP.Guide.API\common;$(OPPHelp)\OPP.Guide.API\wrappers;D:\projects\DreamControls\import\DC;D:\projects\DreamControls\import\DC\delphi_2006;D:\projects\DreamControls\import\OPP;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>.\units;$(OPPHelp)\OPP.Help;$(OPPHelp)\OPP.Guide.API\exportable;$(OPPHelp)\OPP.Guide.API\common;$(DC411)\import\DC;$(DC411)\import\DC\delphi_2006;$(DC411)\import\OPP;$(DC411)\import\GUIDE;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_Locale>1049</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <DCC_DcpOutput>$(OPPCompiled)\Executable</DCC_DcpOutput>
@@ -104,28 +104,20 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="import\GUIDE\dctestunit.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_Process_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Step_SendMessage_Help_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_Executor_State_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Help_System_Messaging_Pipe_d2006.pas"/>
         <DCCReference Include="scripter\OPP.Guide.Scripter.DC.pas"/>
-        <DCCReference Include="import\GUIDE\Proxy_OPPHelpPredicate_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Help_API_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Context_Helper_d2006.pas"/>
-        <DCCReference Include="import\GUIDE\OPP_Guide_API_Identifiable_d2006.pas"/>
+        <DCCReference Include="import\DC\impreg.pas"/>
+        <DCCReference Include="import\DC\vclimp.pas"/>
+        <DCCReference Include="import\DC\win_imp.pas"/>
+        <DCCReference Include="import\GUIDE\dctestunit.pas"/>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_1</Key>
-            <CfgParent>Base</CfgParent>
-        </BuildConfiguration>
-        <BuildConfiguration Include="Release">
-            <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
         </BuildConfiguration>
     </ItemGroup>
@@ -138,9 +130,12 @@
                     <Source Name="MainSource">OPP.Guide.DC.API.dpk</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="D:\Compiled\Executable\OPPHelp.bpl">(untitled)</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k250.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp250.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\19.0\Bpl\dclfrxFD25.bpl">FastReport 6.0 FireDAC Components - Designtime Package</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\19.0\Bpl\dclfrxIntIO25.bpl">FastReport 6.0 Internet transports</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\FastReport 6 VCL Standard\LibD25\dclfrxIntIOIndy25.bpl">FastReport 6.0 Internet transports</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\Deleaker\DeleakerRADStudioPackage250.bpl">Deleaker</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">

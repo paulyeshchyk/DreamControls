@@ -19,10 +19,8 @@ uses
   SysUtils,
   OPP_Help_API,
   OPP_Guide_API,
-  OPP_Guide_Executor_State,
   OPP_Guide_API_Context_Step,
   Proxy_OPPHelpPredicate,
-  OPP_Guide_Executor_State_Helper,
   OPP_Guide_API_Context_Step_SendMessage_Help;
 implementation
 {$IFDEF D3}

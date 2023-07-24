@@ -29,18 +29,10 @@ package OPP.Guide.DC.API;
 {$IMPLICITBUILD OFF}
 
 contains
-  dctestunit in 'import\GUIDE\dctestunit.pas',
-  OPP_Guide_API_Context_d2006 in 'import\GUIDE\OPP_Guide_API_Context_d2006.pas',
-  OPP_Guide_API_Context_Step_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_d2006.pas',
-  OPP_Guide_API_Context_Step_Process_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_Process_d2006.pas',
-  OPP_Guide_API_Context_Step_SendMessage_Help_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Step_SendMessage_Help_d2006.pas',
-  OPP_Guide_API_d2006 in 'import\GUIDE\OPP_Guide_API_d2006.pas',
-  OPP_Guide_Executor_State_d2006 in 'import\GUIDE\OPP_Guide_Executor_State_d2006.pas',
-  OPP_Help_System_Messaging_Pipe_d2006 in 'import\GUIDE\OPP_Help_System_Messaging_Pipe_d2006.pas',
   OPP.Guide.Scripter.DC in 'scripter\OPP.Guide.Scripter.DC.pas',
-  Proxy_OPPHelpPredicate_d2006 in 'import\GUIDE\Proxy_OPPHelpPredicate_d2006.pas',
-  OPP_Help_API_d2006 in 'import\GUIDE\OPP_Help_API_d2006.pas',
-  OPP_Guide_API_Context_Helper_d2006 in 'import\GUIDE\OPP_Guide_API_Context_Helper_d2006.pas',
-  OPP_Guide_API_Identifiable_d2006 in 'import\GUIDE\OPP_Guide_API_Identifiable_d2006.pas';
+  impreg in 'import\DC\impreg.pas',
+  vclimp in 'import\DC\vclimp.pas',
+  win_imp in 'import\DC\win_imp.pas',
+  dctestunit in 'import\GUIDE\dctestunit.pas';
 
 end.

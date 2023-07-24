@@ -19,7 +19,7 @@ uses
   Classes,
   OPP_Guide_API,
   OPP_Guide_API_Identifiable,
-  OPP_Guide_Executor_State,
+  OPP_Guide_API_Context_Step_Result,
   OPP_Guide_API_Context_Step;
 implementation
 {$IFDEF D3}
