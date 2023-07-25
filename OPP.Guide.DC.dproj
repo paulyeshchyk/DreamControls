@@ -118,9 +118,9 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <VerInfo_MajorVer>9</VerInfo_MajorVer>
         <VerInfo_Release>0</VerInfo_Release>
-        <VerInfo_Build>155</VerInfo_Build>
+        <VerInfo_Build>157</VerInfo_Build>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=ООО &quot;АСКОН - Интеграционные решения&quot;;FileDescription=$(MSBuildProjectName);FileVersion=9.0.0.155;InternalName=;LegalCopyright=(C) ООО &quot;АСКОН - Интеграционные решения&quot;, 2022-2023. Все права защищены.;LegalTrademarks=ГОЛЬФСТРИМ(R) является зарегистрированным товарным знаком ООО &quot;АСКОН - Интеграционные решения&quot;.;OriginalFilename=;ProductName=ГОЛЬФСТРИМ 9;ProductVersion=9.0.0.0;Comments=;ProgramID=ГОЛЬФСТРИМ</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=ООО &quot;АСКОН - Интеграционные решения&quot;;FileDescription=$(MSBuildProjectName);FileVersion=9.0.0.157;InternalName=;LegalCopyright=(C) ООО &quot;АСКОН - Интеграционные решения&quot;, 2022-2023. Все права защищены.;LegalTrademarks=ГОЛЬФСТРИМ(R) является зарегистрированным товарным знаком ООО &quot;АСКОН - Интеграционные решения&quot;.;OriginalFilename=;ProductName=ГОЛЬФСТРИМ 9;ProductVersion=9.0.0.0;Comments=;ProgramID=ГОЛЬФСТРИМ</VerInfo_Keys>
         <Debugger_HostApplication>..\..\Compiled\Executable\OPP.Guide.exe</Debugger_HostApplication>
         <VerInfo_AutoGenVersion>false</VerInfo_AutoGenVersion>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>

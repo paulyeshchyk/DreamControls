@@ -21,6 +21,7 @@ uses
   OPP_Guide_API_Context_Step,
   OPP_Guide_API_Context_Step_Result,
   OPP_Guide_API_Dataprovider,
+  OPP_Guide_API_Context_Listener_List,
   OPPGuideAPIContextContainer,
   OPPGuideAPIContext;
 implementation
@@ -33,24 +34,30 @@ type
 type
 _T0 = function : TOPPGuideAPIContext of object;
 
-_T1 = procedure (const p0 : TOPPGuideAPIExecutionState) of object;
+_T1 = procedure  of object;
 
-_T2 = function (const p0 : String): TOPPGuideAPIExecutionState of object;
+_T2 = function (p0 : String): TOPPGuideAPIContextStepResult of object;
 
-_T3 = procedure (p0 : TOPPGuideAPIContextStep;
+_T3 = _T2;
+
+_T4 = procedure (const p0 : TOPPGuideAPIExecutionState) of object;
+
+_T5 = function (const p0 : String): TOPPGuideAPIExecutionState of object;
+
+_T6 = procedure (p0 : TOPPGuideAPIContextStep;
 p1 : String) of object;
 
-{_T4 = procedure (p0 : IOPPGuideAPIContext) of object;}
+{_T7 = procedure (p0 : IOPPGuideAPIContext) of object;}
 
-{_T5 = procedure (p0 : IOPPGuideAPIContext) of object;}
+{_T8 = procedure (p0 : IOPPGuideAPIContext) of object;}
 
-_T6 = procedure  of object;
+_T9 = _T1;
 
-_T7 = function (p0 : String): TOPPGuideAPIContextStepResult of object;
+_T10 = procedure (p0 : IOPPGuideAPIDataprovider) of object;
 
-_T8 = _T7;
+{_T11 = procedure (p0 : IOPPGuideAPIContextListener) of object;}
 
-_T9 = procedure (p0 : IOPPGuideAPIDataprovider) of object;
+{_T12 = procedure (p0 : IOPPGuideAPIContextListener) of object;}
 
 procedure __RegisterProps;
 begin
@@ -82,35 +89,43 @@ procedure _mreg_0;
 begin
 RegisterProc(TOPPGuideAPIContext,'shared',mtClassMethod,TypeInfo(_T0),[TypeInfo(TOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.shared),cRegister);
 
-RegRegisterMethod(TOPPGuideAPIContext,'PushStepState',TypeInfo(_T1),[
+RegisterProc(TOPPGuideAPIContext,'Create',mtConstructor,TypeInfo(_T1),NoParams,Addr(TOPPGuideAPIContext.Create),cRegister);
+
+RegRegisterMethod(TOPPGuideAPIContext,'GetParentStepResult',TypeInfo(_T2),[
+TypeInfo(String),TypeInfo(TOPPGuideAPIContextStepResult)],Addr(TOPPGuideAPIContext.GetParentStepResult));
+
+RegRegisterMethod(TOPPGuideAPIContext,'GetCustomStepResult',TypeInfo(_T3),[
+TypeInfo(String),TypeInfo(TOPPGuideAPIContextStepResult)],Addr(TOPPGuideAPIContext.GetCustomStepResult));
+
+RegRegisterMethod(TOPPGuideAPIContext,'PushStepState',TypeInfo(_T4),[
 TypeInfo(TOPPGuideAPIExecutionState)],Addr(TOPPGuideAPIContext.PushStepState));
 
-RegRegisterMethod(TOPPGuideAPIContext,'PullStepState',TypeInfo(_T2),[
+RegRegisterMethod(TOPPGuideAPIContext,'PullStepState',TypeInfo(_T5),[
 TypeInfo(String),TypeInfo(TOPPGuideAPIExecutionState)],Addr(TOPPGuideAPIContext.PullStepState));
 
-RegRegisterMethod(TOPPGuideAPIContext,'Execute',TypeInfo(_T3),[
+RegRegisterMethod(TOPPGuideAPIContext,'Execute',TypeInfo(_T6),[
 TypeInfo(TOPPGuideAPIContextStep),
 TypeInfo(String)],Addr(TOPPGuideAPIContext.Execute));
 
-RegRegisterMethod(TOPPGuideAPIContext,'Clear',TypeInfo(_T6),NoParams,Addr(TOPPGuideAPIContext.Clear));
+RegRegisterMethod(TOPPGuideAPIContext,'Clear',TypeInfo(_T9),NoParams,Addr(TOPPGuideAPIContext.Clear));
 
-RegRegisterMethod(TOPPGuideAPIContext,'GetParentStepResult',TypeInfo(_T7),[
-TypeInfo(String),TypeInfo(TOPPGuideAPIContextStepResult)],Addr(TOPPGuideAPIContext.GetParentStepResult));
-
-RegRegisterMethod(TOPPGuideAPIContext,'GetCustomStepResult',TypeInfo(_T8),[
-TypeInfo(String),TypeInfo(TOPPGuideAPIContextStepResult)],Addr(TOPPGuideAPIContext.GetCustomStepResult));
-
-RegRegisterMethod(TOPPGuideAPIContext,'SetDataprovider',TypeInfo(_T9),[
+RegRegisterMethod(TOPPGuideAPIContext,'SetDataprovider',TypeInfo(_T10),[
 TypeInfo(IOPPGuideAPIDataprovider)],Addr(TOPPGuideAPIContext.SetDataprovider));
 
 end;
 initialization
 _mreg_0;
-{RegRegisterMethod(TOPPGuideAPIContext,'Add',TypeInfo(_T4),[
+{RegRegisterMethod(TOPPGuideAPIContext,'Add',TypeInfo(_T7),[
 TypeInfo(IOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.Add))}
 
-{RegRegisterMethod(TOPPGuideAPIContext,'Remove',TypeInfo(_T5),[
+{RegRegisterMethod(TOPPGuideAPIContext,'Remove',TypeInfo(_T8),[
 TypeInfo(IOPPGuideAPIContext)],Addr(TOPPGuideAPIContext.Remove))}
+
+{RegRegisterMethod(TOPPGuideAPIContext,'AddListener',TypeInfo(_T11),[
+TypeInfo(IOPPGuideAPIContextListener)],Addr(TOPPGuideAPIContext.AddListener))}
+
+{RegRegisterMethod(TOPPGuideAPIContext,'RemoveListener',TypeInfo(_T12),[
+TypeInfo(IOPPGuideAPIContextListener)],Addr(TOPPGuideAPIContext.RemoveListener))}
 
 __RegisterClasses;
 __RegisterConsts0;

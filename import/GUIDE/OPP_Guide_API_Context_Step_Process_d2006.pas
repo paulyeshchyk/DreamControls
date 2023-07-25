@@ -15,7 +15,6 @@ uses
   dcscript,
   dcsystem,
   dcdreamlib,
-  Forms,
   Variants,
   SysUtils,
   Classes,
