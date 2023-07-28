@@ -18,7 +18,6 @@ uses
   dcdreamlib,
   SysUtils,
   OPP_Guide_API,
-  OPP_Guide_API_Context,
   OPP_Guide_API_Identifiable,
   OPP_Guide_API_Context_Step_Result,
   OPP_Guide_API_Context_Step;
@@ -32,8 +31,7 @@ type
 type
 _T0 = procedure  of object;
 
-_T1 = procedure (p0 : String;
-p1 : TOPPGuideAPIExecutionStateCallback) of object;
+_T1 = procedure (p0 : String) of object;
 
 function __DC__GetTOPPGuideAPIContextStep__NodeType(Instance : TObject; Params : PVariantArgList) : OleVariant;
 begin
@@ -88,8 +86,7 @@ begin
 RegisterProc(TOPPGuideAPIContextStep,'Create',mtConstructor,TypeInfo(_T0),NoParams,Addr(TOPPGuideAPIContextStep.Create),cRegister);
 
 RegRegisterMethod(TOPPGuideAPIContextStep,'Execute',TypeInfo(_T1),[
-TypeInfo(String),
-TypeInfo(TOPPGuideAPIExecutionStateCallback)], pointer(0));
+TypeInfo(String)],Addr(TOPPGuideAPIContextStep.Execute));
 
 end;
 initialization

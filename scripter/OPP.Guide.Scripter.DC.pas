@@ -6,7 +6,6 @@ uses
   System.Classes,
   WinAPI.ActiveX,
   OPP_Guide_API,
-  OPP_Guide_API_Identifiable,
   OPP_Guide_API_Scripter;
 
 type
@@ -27,6 +26,8 @@ uses
   System.Variants,
   System.SysUtils,
   OPP.Help.Log,
+  OPP_Guide_API_Context,
+  OPPGuideAPIContext,
 
   dctestunit,
 
@@ -92,6 +93,7 @@ var
   fDCScripter: TDCScripter;
   errLine, errChar: integer;
 begin
+
   fDCScripter := TDCScripter.Create(nil);
   try
     fDCScripter.Language := 'DelphiScript';
